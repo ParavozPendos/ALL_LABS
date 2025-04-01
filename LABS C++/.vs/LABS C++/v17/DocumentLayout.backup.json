@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\C\u002B\u002B projects\\LABS\\LABS C\u002B\u002B\\",
+  "WorkspaceRootPath": "D:\\C\u002B\u002B projects\\ALL_LABS\\LABS C\u002B\u002B\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EC0F40F2-47D5-446E-A06B-F908030845A0}|INST_LAB_1\\INST_LAB_1.vcxproj|D:\\C\u002B\u002B projects\\LABS\\LABS C\u002B\u002B\\INST_LAB_1\\INST_LAB_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{EC0F40F2-47D5-446E-A06B-F908030845A0}|INST_LAB_1\\INST_LAB_1.vcxproj|D:\\C\u002B\u002B projects\\ALL_LABS\\LABS C\u002B\u002B\\INST_LAB_1\\INST_LAB_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EC0F40F2-47D5-446E-A06B-F908030845A0}|INST_LAB_1\\INST_LAB_1.vcxproj|solutionrelative:INST_LAB_1\\INST_LAB_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -14,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -29,14 +29,18 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "INST_LAB_1.cpp",
-              "DocumentMoniker": "D:\\C\u002B\u002B projects\\LABS\\LABS C\u002B\u002B\\INST_LAB_1\\INST_LAB_1.cpp",
+              "DocumentMoniker": "D:\\C\u002B\u002B projects\\ALL_LABS\\LABS C\u002B\u002B\\INST_LAB_1\\INST_LAB_1.cpp",
               "RelativeDocumentMoniker": "INST_LAB_1\\INST_LAB_1.cpp",
-              "ToolTip": "D:\\C\u002B\u002B projects\\LABS\\LABS C\u002B\u002B\\INST_LAB_1\\INST_LAB_1.cpp",
+              "ToolTip": "D:\\C\u002B\u002B projects\\ALL_LABS\\LABS C\u002B\u002B\\INST_LAB_1\\INST_LAB_1.cpp",
               "RelativeToolTip": "INST_LAB_1\\INST_LAB_1.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-01T18:33:05.948Z",
               "EditorCaption": ""
