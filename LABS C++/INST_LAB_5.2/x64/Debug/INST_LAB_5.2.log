@@ -1,4 +1,0 @@
-﻿  INST_LAB_5.2.cpp
-D:\C++ projects\LABS\INST_LAB_5.2\INST_LAB_5.2.cpp(49,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-D:\C++ projects\LABS\INST_LAB_5.2\INST_LAB_5.2.cpp(63,34): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  INST_LAB_5.2.vcxproj -> D:\C++ projects\LABS\x64\Debug\INST_LAB_5.2.exe

@@ -1,2 +1,0 @@
-C:\C++, C projects\INST_LAB_2\x64\Debug\INST_LAB_2.exe
-C:\C++, C projects\LABS\INST_LAB_2\x64\Debug\INST_LAB_2.exe
