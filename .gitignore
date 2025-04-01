@@ -416,18 +416,18 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/LABS C++/.vs/LABS C++/v17/.suo
-/LABS C++/.vs/LABS C++/v17/Browse.VC.db
-/LABS C++/.vs/LABS C++/v17/DocumentLayout.backup.json
-/LABS C++/.vs/LABS C++/v17/DocumentLayout.json
-/LABS C#/.vs/LABS C#/v17/.suo
-/LABS C#/.vs/LABS C#/v17/Browse.VC.db
-/LABS C#/.vs/LABS C#/v17/DocumentLayout.backup.json
-/LABS C#/.vs/LABS C#/v17/DocumentLayout.json
+/LABS_C++/.vs/LABS C++/v17/.suo
+/LABS_C++/.vs/LABS C++/v17/Browse.VC.db
+/LABS_C++/.vs/LABS C++/v17/DocumentLayout.backup.json
+/LABS_C++/.vs/LABS C++/v17/DocumentLayout.json
+/LABS_C#/.vs/LABS C#/v17/.suo
+/LABS_C#/.vs/LABS C#/v17/Browse.VC.db
+/LABS_C#/.vs/LABS C#/v17/DocumentLayout.backup.json
+/LABS_C#/.vs/LABS C#/v17/DocumentLayout.json
 
-/LABS C#/.vs/LABS C#/v17/*
-/LABS C++/.vs/LABS C++/v17/*
+/LABS_C#/.vs/LABS C#/v17/*
+/LABS_C++/.vs/LABS C++/v17/*
 
-/LABS C++/.vs/LABS C++/v17/.suo
-/LABS C++/.vs/LABS C++/v17/Browse.VC.db
-/LABS C++/.vs/LABS C++/v17/Solution.VC.db
+/LABS_C++/.vs/LABS C++/v17/.suo
+/LABS_C++/.vs/LABS C++/v17/Browse.VC.db
+/LABS_C++/.vs/LABS C++/v17/Solution.VC.db
