@@ -10,7 +10,7 @@ namespace INST_LAB_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Helloooooo world");
+            Console.WriteLine("Hello world");
         }
     }
 }

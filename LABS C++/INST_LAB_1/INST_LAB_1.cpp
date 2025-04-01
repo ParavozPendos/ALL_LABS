@@ -42,5 +42,5 @@ int main()
 	cout << "Результат    = ";
 	cout.width(30);
 	cout  << y << endl << endl;
-	system("pause ");
+	system("pause");
 }
