@@ -14,13 +14,15 @@
 *.userprefs
 
 # Игнорировать ВО ВСЕХ ПАПКАХ:
-**/.vs
-**/obj
-**/bin
+**/.vs/
+**/obj/
+**/bin/
 **/*.suo
 **/*.user
 **/*.VC.db
 **/*.opendb
+**/v17
+**/FileContentIndex
 
 # Автогенерируемые файлы
 **/*.aps
