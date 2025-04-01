@@ -1,0 +1,2 @@
+C:\C++, C projects\INST_LAB_1\x64\Debug\INST_LAB_1.exe
+C:\C++, C projects\LABS\INST_LAB_1\x64\Debug\INST_LAB_1.exe
