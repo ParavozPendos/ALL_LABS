@@ -12,7 +12,15 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+
+# Игнорировать ВО ВСЕХ ПАПКАХ:
 **/.vs/
+**/obj/
+**/bin/
+**/*.suo
+**/*.user
+**/*.VC.db
+**/*.opendb
 
 # Mono auto generated files
 mono_crash.*
