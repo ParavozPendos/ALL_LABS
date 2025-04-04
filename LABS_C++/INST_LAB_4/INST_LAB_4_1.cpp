@@ -1,35 +1,49 @@
 ﻿#include <iostream>
 #include <cmath>
-#include <ctime>
 using namespace std;
 
-unsigned int SmallestDevider(int value)
+int SmallestOddDivisor(int value) 
 {
-    int smalest = 3;
-    while (value % smalest != 0 || smalest % 2 !=1)
+    bool isEven = value % 2 == 0;
+    int smallest = 3;
+
+    if (value == 1)
     {
-        smalest++;
+        return 0;
     }
-    if (smalest == value)
+    while (smallest < value)
     {
-        cout << endl << "Простое число! ";
+        if (value % smallest == 0)
+        {
+            return smallest;
+        }
+        smallest += 2;
     }
-    
-    return smalest;
+    if (!isEven)
+    {
+        cout << "Это простое число!\n";
+        return value;
+    }
+    else
+        return 0;
 }
 
-
-int main()
-{
+int main() {
     setlocale(LC_ALL, "");
-    int num;
+    int n;
+    cout << "Введите натуральное число n: ";
+    cin >> n;
 
-    cout << "Введите число: ";
-    cin >> num;
+    int k = SmallestOddDivisor(n);
 
-    num = SmallestDevider(num);
-
-    cout << endl << "Наименьшее нечетное натуральное число: " << num;
+    if (k == 0) {
+        cout << "Нет нечётных делителей" << endl;
+    }
+    else 
+    {
+        cout << "Наименьший нечётный делитель: " << k << endl;
+    }
 
     system("pause>nul");
+    return 0;
 }
