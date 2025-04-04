@@ -20,7 +20,6 @@ namespace INST_LAB_1
             Person = "Иванов Иван Иванович";
             Education = Education.Bachelor;
             Group = 0;
-            exams = Array.Empty<Exam>();
         }
 
         public Student(string Person, Education Education, int Group)
@@ -28,7 +27,6 @@ namespace INST_LAB_1
             this.Person = Person;
             this.Education = Education;
             this.Group = Group;
-            this.exams = Array.Empty<Exam>();
         }
 
         public string Person { get; private set; }

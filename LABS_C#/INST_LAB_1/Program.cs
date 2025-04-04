@@ -49,19 +49,19 @@ namespace INST_LAB_1
             Console.WriteLine(student.ToShortString());
             Console.WriteLine();
 
-            const int SIZE = 10000;
+            const int SIZE = 100;
             Exam exam = new Exam(0, "TEST", DateTime.Now);
 
             Exam[] ARR_1 = new Exam[SIZE*SIZE];
-            DateTime start_1 = DateTime.Now;
+            float start_1 = Environment.TickCount;
             for (int i = 0; i < ARR_1.Length; i++)
             {
                 ARR_1[i] = exam;
             }
-            Console.WriteLine((DateTime.Now - start_1).TotalMilliseconds + " ms");
+            Console.WriteLine((Environment.TickCount - start_1) + " tick");
 
             Exam[,] ARR_2 = new Exam[SIZE, SIZE];
-            DateTime start_2 = DateTime.Now;
+            int start_2 = Environment.TickCount;
             for (int i = 0; i < SIZE; i++)
             {
                 for (int j = 0; j < SIZE; j++)
@@ -69,14 +69,14 @@ namespace INST_LAB_1
                     ARR_2[i, j] = exam;
                 }
             }
-            Console.WriteLine((DateTime.Now - start_2).TotalMilliseconds + " ms");
+            Console.WriteLine((Environment.TickCount - start_2) + " tick");
 
             var ARR_3 = new Exam[SIZE][];
             for (int i = 0; i < SIZE; i++)
             {
                 ARR_3[i] = new Exam[SIZE];
             }
-            DateTime start_3 = DateTime.Now;
+            int start_3 = Environment.TickCount;
             for (int i = 0; i < SIZE; i++)
             {
                 for (int j = 0; j < SIZE; j++)
@@ -84,7 +84,7 @@ namespace INST_LAB_1
                     ARR_3[i][j] = exam;
                 }
             }
-            Console.WriteLine((DateTime.Now - start_3).TotalMilliseconds + " ms");
+            Console.WriteLine((Environment.TickCount - start_3) + " tick");
 
             Console.ReadKey(true);
         }
