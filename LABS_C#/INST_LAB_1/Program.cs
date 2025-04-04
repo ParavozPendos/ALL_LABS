@@ -49,7 +49,7 @@ namespace INST_LAB_1
             Console.WriteLine(student.ToShortString());
             Console.WriteLine();
 
-            const int SIZE = 100;
+            const int SIZE = 10000;
             Exam exam = new Exam(0, "TEST", DateTime.Now);
 
             Exam[] ARR_1 = new Exam[SIZE*SIZE];
