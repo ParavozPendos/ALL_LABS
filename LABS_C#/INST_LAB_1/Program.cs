@@ -9,10 +9,11 @@ namespace INST_LAB_1
         static void Main(string[] args)
         {
             var student = new Student(
-                "Абоба",
+                "Петр", "Пупкин", "Сергеевич",  
+                new DateTime(2004, 08, 07),
                 Education.Bachelor,
                 101
-            );
+            ); 
 
             Console.WriteLine("Инфа о студенте (короткая):");
             Console.WriteLine(student.ToShortString());

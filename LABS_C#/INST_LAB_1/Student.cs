@@ -13,23 +13,20 @@ namespace INST_LAB_1
         SecondEducation,
     }
 
-    class Student
+    class Student : Person
     {
-        public Student()
+        public Student() : base()
         {
-            Person = "Иванов Иван Иванович";
             Education = Education.Bachelor;
             Group = 0;
         }
 
-        public Student(string Person, Education Education, int Group)
+        public Student(string Name, string SecondName, string LastName, DateTime DateOfBirth, Education Education, int Group) : base(Name, SecondName, LastName, DateOfBirth) 
         {
-            this.Person = Person;
             this.Education = Education;
             this.Group = Group;
         }
 
-        public string Person { get; private set; }
         public Education Education { get; set; }
         public int Group { get; set; }
 
@@ -37,7 +34,7 @@ namespace INST_LAB_1
         public Exam[] Exams
         {
             get { return exams; }
-            set { exams = value ?? Array.Empty<Exam>(); }
+            set { exams = value; }
         }
         private double average;
         public double Average
@@ -75,12 +72,12 @@ namespace INST_LAB_1
             {
                 ExamList += item.ToString() + "\n";
             }
-            return $"Студент: {Person} | Образование: {Education} | Группа: {Group}\nЭкзамены:\n{ExamList}";
+            return $"Студент: (Имя: {Name} | Фамилия: {SecondName} | Отчество: {LastName} Дата рождения: {DateOfBirth:yyyy-MM-dd}) |\nОбразование: {Education} | Группа: {Group}\nЭкзамены:\n{ExamList}";
         }
 
         public string ToShortString()
         {
-            return $"Студент: {Person} | Образование: {Education} | Группа: {Group} | СрБалл: {Average}";
+            return $"Студент: (Имя: {Name} | Фамилия: {SecondName} | Отчество: {LastName} Дата рождения: {DateOfBirth:yyyy-MM-dd}) |\nОбразование: {Education} | Группа: {Group} | СрБалл: {Average}";
         }
     }
 }
