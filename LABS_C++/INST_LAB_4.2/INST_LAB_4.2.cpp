@@ -1,12 +1,12 @@
 ﻿#include <iostream>
 using namespace std;
 
-const unsigned int ま = 100;
+const unsigned int L_MAX = 100;
 
-int matrix1[ま][ま];
-int matrix2[ま][ま];
+int matrix1[L_MAX][L_MAX];
+int matrix2[L_MAX][L_MAX];
 
-void MatrixInit(int rows, int cols, int matrix[ま][ま])
+void MatrixInit(int rows, int cols, int matrix[L_MAX][L_MAX])
 {
     for (size_t i = 0; i < rows; i++)
     {
@@ -17,7 +17,7 @@ void MatrixInit(int rows, int cols, int matrix[ま][ま])
     }
 }
 
-void Printer(int rows, int cols, int matrix[ま][ま])
+void Printer(int rows, int cols, int matrix[L_MAX][L_MAX])
 {
     for (size_t i = 0; i < rows; i++)
     {
@@ -29,7 +29,7 @@ void Printer(int rows, int cols, int matrix[ま][ま])
     }
     cout << endl;
 }
-void ColSwapper(int cols, int rows, int first, int second, int matrix[ま][ま])
+void ColSwapper(int cols, int rows, int first, int second, int matrix[L_MAX][L_MAX])
 {
     first--;
     second--;

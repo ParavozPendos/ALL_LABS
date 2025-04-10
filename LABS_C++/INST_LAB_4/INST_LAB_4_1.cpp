@@ -36,7 +36,8 @@ int main() {
 
     int k = SmallestOddDivisor(n);
 
-    if (k == 0) {
+    if (k == 0) 
+    {
         cout << "Нет нечётных делителей" << endl;
     }
     else 
