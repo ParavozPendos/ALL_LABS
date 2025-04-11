@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace INST_LAB_2
 {
+    enum Frequency
+    {
+        Weekly,
+        Monthly,
+        Yearly
+    }
+
     internal class Magazine
     {
         public string Title { get; set; }
@@ -24,7 +31,7 @@ namespace INST_LAB_2
             Period = new Frequency();
             ReleaseDate = DateTime.MinValue;
             Count = 0;
-            Articles = Array.Empty<Article>();
+            Articles = Array.Empty<Article>();            
         }
         public Magazine(string Title, Frequency Period, DateTime ReleaseDate, int Count)
         {
@@ -56,6 +63,7 @@ namespace INST_LAB_2
         {
             Array.Resize(ref _Articles, _Articles.Length + newArticles.Length);
             Array.Copy(newArticles, 0, _Articles, _Articles.Length - newArticles.Length, newArticles.Length);
+            Array.Sort(Articles, (x, y) => String.Compare(x.Author.Name, y.Author.Name));
         }
 
         public override string ToString()
@@ -65,11 +73,17 @@ namespace INST_LAB_2
             {
                 foreach (var item in _Articles)
                 {
-                    ArticleList += item.ToString() + "\n\n";
+                    ArticleList += $"{item.ToString()}\n║{new string(' ', Console.WindowWidth - Console.CursorLeft - 2)}║\n";
                 }
             }
             
-            return $"Название журнала: {Title} | Тираж: {Count} | Время выпуска: {ReleaseDate:yyyy-MM-dd} | Периодичность: {Period} | \n\nСТАТЬИ\n\n{ArticleList}";
+            return $"Название журнала: {Title} | Тираж: {Count} | Время выпуска: {ReleaseDate:yyyy-MM-dd} | Периодичность: {Period} | \n" +
+                $"\n{new string(' ', Console.WindowWidth / 2 - 8)}↓↓↓ СТАТЬИ ↓↓↓ \n\n" +
+                $"╔{new string('═', Console.WindowWidth - 2)}╗" +
+                //$"║{new string(' ', Console.WindowWidth - 2)}║" +
+                $"{ArticleList}" + 
+                $"╚{new string('═', Console.WindowWidth - 2)}╝";
+                
         }
         public string ToShortString()
         {

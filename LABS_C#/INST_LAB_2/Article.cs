@@ -28,8 +28,11 @@ namespace INST_LAB_2
         }
         public override string ToString()
         {
-            return $"Имя: {Author.Name} | Фамилия: {Author.SecondName} | Отчество: {Author.LastName} | Дата рождения: {Author.DateOfBirth:yyyy-MM-dd}\n" +
-            $"Название статьи: {Title} | Рейтинг статьи: {Raiting}";
+            string str1 = $"Имя: {Author.Name} | Фамилия: {Author.SecondName} | Отчество: {Author.LastName} | Дата рождения: {Author.DateOfBirth:yyyy-MM-dd}";
+            string str2 = $"Название статьи: {Title} | Рейтинг статьи: {Raiting}";
+
+            return $"║ {str1}{new string(' ', Console.WindowWidth - str1.Length-3)}║\n" +
+            $"║ {str2}{new string(' ', Console.WindowWidth - str2.Length-3)}║";
         }
     }
 }

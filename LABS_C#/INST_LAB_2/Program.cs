@@ -8,12 +8,7 @@ using System.Threading.Tasks;
 
 namespace INST_LAB_2
 {
-    enum Frequency
-    {
-        Weekly,
-        Monthly,
-        Yearly 
-    }
+    
     internal class Program
     {
         static void Main(string[] args)
@@ -24,14 +19,20 @@ namespace INST_LAB_2
             Person chell_3 = new Person("Антон", "Антонов", "Антонович", new DateTime(1888, 4, 2));
 
             //MAGAZINES
-            Magazine magazine = new Magazine("Произведения искуства", Frequency.Monthly, new DateTime(2000, 5, 3), 743);
+            Magazine magazine = new Magazine("Произведения искуства", Frequency.Monthly, new DateTime(2025, 5, 3), 743);
             magazine.AddArticles(
                 new Article(chell_1, "Каловые сталактиты", 100),
                 new Article(chell_2, "Лужи мочи в подъезде", 34),
                 new Article(chell_3, "Обблеванные мусорки", 77)
             );
-
-            Console.WriteLine("Полная инфа о журнале:");
+            
+            ColorfulPrint("Проверка периодичности выпуска:\n", ConsoleColor.DarkRed);
+            Console.WriteLine("Еженедельная: " + magazine[Frequency.Weekly]);
+            Console.WriteLine("Ежемесячная: " + magazine[Frequency.Monthly]);
+            Console.WriteLine("Ежегодная: " + magazine[Frequency.Yearly]);
+            Console.WriteLine();
+            
+            ColorfulPrint("Полная инфа о журнале:\n", ConsoleColor.DarkRed);
             Console.WriteLine(magazine.ToString());
             Console.WriteLine();
 
@@ -39,15 +40,68 @@ namespace INST_LAB_2
                 new Article(chell_1, "Каловые сталогмиты", 11),
                 new Article(chell_3, "Причины восстания бомжей", 0)
             );
+            
+            ColorfulPrint("Полная инфа о журнале + новые статьи:\n", ConsoleColor.DarkRed);
 
-            Console.WriteLine("Полная инфа о журнале + новые статьи:");
             Console.WriteLine(magazine.ToString());
             Console.WriteLine();
 
-            Console.WriteLine("короткая инфа о журнале:");
+            ColorfulPrint("Краткая инфа о журнале:\n", ConsoleColor.DarkRed);
             Console.WriteLine(magazine.ToShortString());
             Console.WriteLine();
+
+            ColorfulPrint("Проверка производительности:\n", ConsoleColor.DarkRed);
+
+            const int SIZE = 10000;
+            Article Test = new Article(chell_3, "TEST", 100);
+
+            Article[] ARR_0 = new Article[SIZE*SIZE];
+            float start_0 = Environment.TickCount;
+            for (int i = 0; i < SIZE*SIZE; i++)
+            {
+                ARR_0[i] = Test;
+            }
+            Console.WriteLine("Одномерный: "+(Environment.TickCount - start_0) + " tick");
+
+            Article[,] ARR_1 = new Article[SIZE,SIZE];
+            float start_1 = Environment.TickCount;
+            for (int i = 0; i < SIZE; i++)
+            {
+                for (int j = 0; j < SIZE; j++)
+                {
+                    ARR_1[i, j] = Test;
+                }
+            }
+            Console.WriteLine("Двумерный: " + (Environment.TickCount - start_1) + " tick");
+
+            Article[][] ARR_2 = new Article[SIZE][];
+            for (int i = 0; i < SIZE; i++)
+            {
+                ARR_2[i] = new Article[SIZE]; 
+            }
+            float start_2 = Environment.TickCount;
+            for (int i = 0; i < SIZE; i++)
+            {
+                for (int j = 0; j < SIZE; j++)
+                {
+                    ARR_2[i][j] = Test;
+                }
+            }
+            Console.WriteLine("Зубчатый: " + (Environment.TickCount - start_2) + " tick");
+            Console.WriteLine();
+
             Console.ReadKey(true);
+        }
+
+
+
+
+        // ДЛЯ УДОБСТВА
+        public static void ColorfulPrint(string str, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(str);
+            Console.ResetColor();
         }
     }
 }
