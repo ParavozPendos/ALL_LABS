@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace WinFormsApp3
+namespace INST_LAB_3_4
 {
     static class StudyFormSource {
         static public string GetDifinition(Enum value) {

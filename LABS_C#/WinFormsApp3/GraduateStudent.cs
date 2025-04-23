@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp3
+﻿namespace INST_LAB_3_4
 {
     public class GraduateStudent : Student
     {

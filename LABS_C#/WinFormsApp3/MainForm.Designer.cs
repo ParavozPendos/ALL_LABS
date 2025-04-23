@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp3
+﻿namespace INST_LAB_3_4
 {
     partial class MainForm
     {
@@ -40,19 +40,19 @@
             // 
             listBoxStudents.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             listBoxStudents.FormattingEnabled = true;
-            listBoxStudents.Location = new Point(11, 15);
-            listBoxStudents.Margin = new Padding(3, 4, 3, 4);
+            listBoxStudents.ItemHeight = 15;
+            listBoxStudents.Location = new Point(10, 11);
             listBoxStudents.Name = "listBoxStudents";
-            listBoxStudents.Size = new Size(260, 244);
+            listBoxStudents.Size = new Size(228, 184);
             listBoxStudents.TabIndex = 0;
             // 
             // buttonAddStudent
             // 
+            buttonAddStudent.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             buttonAddStudent.Font = new Font("Arial", 10F, FontStyle.Bold);
-            buttonAddStudent.Location = new Point(11, 275);
-            buttonAddStudent.Margin = new Padding(3, 4, 3, 4);
+            buttonAddStudent.Location = new Point(10, 206);
             buttonAddStudent.Name = "buttonAddStudent";
-            buttonAddStudent.Size = new Size(261, 51);
+            buttonAddStudent.Size = new Size(228, 38);
             buttonAddStudent.TabIndex = 1;
             buttonAddStudent.Text = "Добавить студента";
             buttonAddStudent.UseVisualStyleBackColor = true;
@@ -60,54 +60,52 @@
             // 
             // buttonEditStudent
             // 
-            buttonEditStudent.Location = new Point(14, 333);
-            buttonEditStudent.Margin = new Padding(3, 4, 3, 4);
+            buttonEditStudent.Location = new Point(10, 250);
             buttonEditStudent.Name = "buttonEditStudent";
-            buttonEditStudent.Size = new Size(129, 40);
+            buttonEditStudent.Size = new Size(115, 30);
             buttonEditStudent.TabIndex = 0;
             buttonEditStudent.Text = "Редактировать";
             buttonEditStudent.Click += buttonEditStudent_Click;
             // 
             // buttonDeleteStudent
             // 
-            buttonDeleteStudent.Location = new Point(150, 333);
-            buttonDeleteStudent.Margin = new Padding(3, 4, 3, 4);
+            buttonDeleteStudent.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            buttonDeleteStudent.Location = new Point(131, 250);
             buttonDeleteStudent.Name = "buttonDeleteStudent";
-            buttonDeleteStudent.Size = new Size(122, 40);
+            buttonDeleteStudent.Size = new Size(107, 30);
             buttonDeleteStudent.TabIndex = 0;
             buttonDeleteStudent.Text = "Удалить";
             buttonDeleteStudent.Click += buttonDeleteStudent_Click;
             // 
             // textBoxFilter
             // 
-            textBoxFilter.Location = new Point(14, 387);
-            textBoxFilter.Margin = new Padding(3, 4, 3, 4);
+            textBoxFilter.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxFilter.Location = new Point(11, 286);
             textBoxFilter.Name = "textBoxFilter";
-            textBoxFilter.Size = new Size(258, 27);
+            textBoxFilter.Size = new Size(226, 23);
             textBoxFilter.TabIndex = 0;
             // 
             // buttonFilter
             // 
-            buttonFilter.Location = new Point(150, 425);
-            buttonFilter.Margin = new Padding(3, 4, 3, 4);
+            buttonFilter.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            buttonFilter.Location = new Point(10, 315);
             buttonFilter.Name = "buttonFilter";
-            buttonFilter.Size = new Size(122, 35);
+            buttonFilter.Size = new Size(228, 30);
             buttonFilter.TabIndex = 0;
             buttonFilter.Text = "Фильтр";
             buttonFilter.Click += buttonFilter_Click;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(285, 472);
+            ClientSize = new Size(249, 354);
             Controls.Add(buttonAddStudent);
             Controls.Add(listBoxStudents);
             Controls.Add(buttonEditStudent);
             Controls.Add(buttonDeleteStudent);
             Controls.Add(textBoxFilter);
             Controls.Add(buttonFilter);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             Text = "Студенты";
             FormClosing += MainForm_FormClosing;
