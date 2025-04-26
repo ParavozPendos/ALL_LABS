@@ -161,16 +161,21 @@
             // hsbSpeed
             // 
             this.hsbSpeed.Location = new System.Drawing.Point(115, 14);
+            this.hsbSpeed.Maximum = 1000;
+            this.hsbSpeed.Minimum = 1;
             this.hsbSpeed.Name = "hsbSpeed";
             this.hsbSpeed.Size = new System.Drawing.Size(312, 17);
             this.hsbSpeed.TabIndex = 5;
+            this.hsbSpeed.Value = 500;
             // 
             // hsbApprox
             // 
             this.hsbApprox.Location = new System.Drawing.Point(115, 58);
+            this.hsbApprox.Minimum = 1;
             this.hsbApprox.Name = "hsbApprox";
             this.hsbApprox.Size = new System.Drawing.Size(312, 17);
             this.hsbApprox.TabIndex = 6;
+            this.hsbApprox.Value = 1;
             // 
             // MainForm
             // 
