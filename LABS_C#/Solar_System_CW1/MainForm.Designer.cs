@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.hsbApprox = new System.Windows.Forms.HScrollBar();
@@ -45,6 +46,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +64,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.rtbDescription);
+            this.splitContainer1.Panel1.Controls.Add(this.panel2);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.bStop);
             this.splitContainer1.Panel1.Controls.Add(this.bStart);
@@ -76,18 +78,29 @@
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.rtbDescription);
+            this.panel2.Location = new System.Drawing.Point(638, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(3);
+            this.panel2.Size = new System.Drawing.Size(313, 94);
+            this.panel2.TabIndex = 5;
+            // 
             // rtbDescription
             // 
-            this.rtbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbDescription.BackColor = System.Drawing.SystemColors.Control;
             this.rtbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rtbDescription.Location = new System.Drawing.Point(638, 10);
+            this.rtbDescription.Location = new System.Drawing.Point(3, 3);
             this.rtbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.ShowSelectionMargin = true;
-            this.rtbDescription.Size = new System.Drawing.Size(312, 94);
+            this.rtbDescription.Size = new System.Drawing.Size(305, 86);
             this.rtbDescription.TabIndex = 4;
             this.rtbDescription.Text = "";
             this.rtbDescription.Visible = false;
@@ -119,6 +132,7 @@
             // 
             this.hsbSpeed.LargeChange = 1;
             this.hsbSpeed.Location = new System.Drawing.Point(115, 14);
+            this.hsbSpeed.Maximum = 1000;
             this.hsbSpeed.Name = "hsbSpeed";
             this.hsbSpeed.Size = new System.Drawing.Size(312, 17);
             this.hsbSpeed.TabIndex = 5;
@@ -197,6 +211,7 @@
             // 
             // timer
             // 
+            this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MainForm
@@ -215,6 +230,7 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -236,6 +252,7 @@
         private System.Windows.Forms.Label labelSpeed;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.RichTextBox rtbDescription;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

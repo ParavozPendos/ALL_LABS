@@ -361,7 +361,7 @@ namespace Solar_System_CW1
 		}
 		private void timer_Tick(object sender, EventArgs e)
 		{
-			generation += (int)globalSpeed;
+			generation += (int)(globalSpeed);
 
 			MoveLogic.UpdateAllPositions(globalSpeed, Sun);
 			DrawSimulation();
