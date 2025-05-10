@@ -47,10 +47,10 @@ namespace Solar_System_CW1
         public double speed { get; set; }
         public double size { get; set; }
         public Brush color { get; set; }
+        public double angle { get; set; }
 
         public List<Tbody> satelliteList = new List<Tbody>();
 
-        public double angle { get; set; }
         public void AddSatellite(params Tbody[] satellites)
         {
             satelliteList.AddRange(satellites);

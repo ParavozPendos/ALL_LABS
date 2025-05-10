@@ -15,8 +15,8 @@ namespace Solar_System_CW1
 	public partial class MainForm : Form
 	{
 		private Graphics graphics;
-		private Coordinate systemCenter = new Coordinate(0, 0);
-		private Point lastMousePos;
+		private Coordinate systemCenter = new Coordinate();
+		private Coordinate lastMousePos = new Coordinate();
 		private double globalSpeed;
 		private double scale;
 		private int fps = 144;
@@ -240,7 +240,7 @@ namespace Solar_System_CW1
 			labelGeneration.Text = $"Generation: {generation}";
 			labelSpeed.Text = $"Speed: {globalSpeed}";
 			labelApprox.Text = $"Approx: {scale}x";
-			if (selectedBody != null) rtbDescription.Text = $"Описание: {selectedBody.description}";
+			
 			
 
             //pictuteBox
@@ -294,13 +294,27 @@ namespace Solar_System_CW1
 
 
 					// Рисуем задник для текста
+					var selectedInfoBox = new List<Coordinate>
+					{
+						new Coordinate(screenPos.x + 15, screenPos.y - radius - textSize.Height - 5),
+						new Coordinate(textSize.Width + 5, textSize.Height + 3)
+					};
+
 					graphics.FillRectangle(
 						Brushes.DarkGray,
-						(float)(screenPos.x + 15),
-						(float)(screenPos.y - radius - textSize.Height - 5),
-						(float)textSize.Width + 5,
-						(float)textSize.Height + 3
-					);
+						(float)(selectedInfoBox[0].x),
+						(float)(selectedInfoBox[0].y),
+                        (float)(selectedInfoBox[1].x),
+                        (float)(selectedInfoBox[1].y)
+                    );
+
+					graphics.DrawRectangle(
+                        new Pen(selectedBody.color, 2),
+                        (float)(selectedInfoBox[0].x - 1),
+                        (float)(selectedInfoBox[0].y - 1),
+                        (float)(selectedInfoBox[1].x + 1),
+                        (float)(selectedInfoBox[1].y + 1)
+                        );
 
 					// Рисуем текст
 					graphics.DrawString(info, font, Brushes.Black,
@@ -309,7 +323,8 @@ namespace Solar_System_CW1
 					);
 
 					// Рисуем ореол
-					graphics.DrawEllipse(new Pen(Color.White, 2),
+					graphics.DrawEllipse(
+						new Pen(Color.White, 2),
 						(float)(screenPos.x - radius - 3),
 						(float)(screenPos.y - radius - 3),
 						(float)(radius + 3) * 2,
@@ -345,7 +360,6 @@ namespace Solar_System_CW1
 
 			pictureBox.Invalidate();
 		}
-
 		private void timer_Tick(object sender, EventArgs e)
 		{
 			generation += (int)globalSpeed;
@@ -380,7 +394,8 @@ namespace Solar_System_CW1
 
 		private void pictureBox_MouseDown(object sender, MouseEventArgs e)
 		{
-			lastMousePos = e.Location;
+			lastMousePos.x = e.Location.X;
+			lastMousePos.y = e.Location.Y;
 
 			if (e.Button == MouseButtons.Middle)
 			{
@@ -401,7 +416,8 @@ namespace Solar_System_CW1
 					{
 						selectedBody = body;
 						rtbDescription.Visible = true;
-						Console.WriteLine($"{LMB_Pos.x} |\t {LMB_Pos.y} |\t {selectedBody.name}");
+                        rtbDescription.Text = $"Описание: {selectedBody.description}";
+                        Console.WriteLine($"{LMB_Pos.x} |\t {LMB_Pos.y} |\t {selectedBody.name}");
 					}
 
 					if (selectedBody != null && !selectedBody.IsPointOnBody(LMB_Pos, scale))
@@ -417,14 +433,15 @@ namespace Solar_System_CW1
 		{
 			if (isDragging && e.Button == MouseButtons.Middle)
 			{
-				int deltaX = e.X - lastMousePos.X;
-				int deltaY = e.Y - lastMousePos.Y;
+                int deltaX = e.X - (int)lastMousePos.x;
+				int deltaY = e.Y - (int)lastMousePos.y;
 
 				systemCenter.x -= deltaX / scale;
 				systemCenter.y -= deltaY / scale;
 
-				lastMousePos = e.Location;
-			}
+                lastMousePos.x = e.Location.X;
+				lastMousePos.y = e.Location.Y;
+            }
 		}
 
 		private void pictureBox_MouseUp(object sender, MouseEventArgs e)
