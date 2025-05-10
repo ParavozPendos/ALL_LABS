@@ -59,6 +59,7 @@
             this.splitContainer1.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -73,8 +74,9 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.labelGeneration);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox);
-            this.splitContainer1.Size = new System.Drawing.Size(958, 473);
+            this.splitContainer1.Size = new System.Drawing.Size(1277, 582);
             this.splitContainer1.SplitterDistance = 108;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
@@ -84,10 +86,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.rtbDescription);
-            this.panel2.Location = new System.Drawing.Point(638, 10);
+            this.panel2.Location = new System.Drawing.Point(851, 12);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.panel2.Size = new System.Drawing.Size(313, 94);
+            this.panel2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Size = new System.Drawing.Size(418, 115);
             this.panel2.TabIndex = 5;
             // 
             // rtbDescription
@@ -96,11 +99,11 @@
             this.rtbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rtbDescription.Location = new System.Drawing.Point(3, 3);
-            this.rtbDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbDescription.Location = new System.Drawing.Point(4, 4);
+            this.rtbDescription.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.ShowSelectionMargin = true;
-            this.rtbDescription.Size = new System.Drawing.Size(305, 86);
+            this.rtbDescription.Size = new System.Drawing.Size(408, 105);
             this.rtbDescription.TabIndex = 4;
             this.rtbDescription.Text = "";
             this.rtbDescription.Visible = false;
@@ -112,18 +115,19 @@
             this.panel1.Controls.Add(this.hsbSpeed);
             this.panel1.Controls.Add(this.labelApprox);
             this.panel1.Controls.Add(this.labelSpeed);
-            this.panel1.Location = new System.Drawing.Point(182, 10);
+            this.panel1.Location = new System.Drawing.Point(243, 12);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(449, 94);
+            this.panel1.Size = new System.Drawing.Size(598, 115);
             this.panel1.TabIndex = 4;
             // 
             // hsbApprox
             // 
             this.hsbApprox.LargeChange = 1;
-            this.hsbApprox.Location = new System.Drawing.Point(115, 58);
+            this.hsbApprox.Location = new System.Drawing.Point(153, 71);
             this.hsbApprox.Minimum = 1;
             this.hsbApprox.Name = "hsbApprox";
-            this.hsbApprox.Size = new System.Drawing.Size(312, 17);
+            this.hsbApprox.Size = new System.Drawing.Size(416, 17);
             this.hsbApprox.TabIndex = 6;
             this.hsbApprox.Value = 1;
             this.hsbApprox.ValueChanged += new System.EventHandler(this.hsbApprox_ValueChanged);
@@ -131,10 +135,10 @@
             // hsbSpeed
             // 
             this.hsbSpeed.LargeChange = 1;
-            this.hsbSpeed.Location = new System.Drawing.Point(115, 14);
+            this.hsbSpeed.Location = new System.Drawing.Point(153, 17);
             this.hsbSpeed.Maximum = 1000;
             this.hsbSpeed.Name = "hsbSpeed";
-            this.hsbSpeed.Size = new System.Drawing.Size(312, 17);
+            this.hsbSpeed.Size = new System.Drawing.Size(416, 17);
             this.hsbSpeed.TabIndex = 5;
             this.hsbSpeed.Value = 1;
             this.hsbSpeed.ValueChanged += new System.EventHandler(this.hsbSpeed_ValueChanged);
@@ -143,9 +147,10 @@
             // 
             this.labelApprox.AutoSize = true;
             this.labelApprox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.labelApprox.Location = new System.Drawing.Point(8, 58);
+            this.labelApprox.Location = new System.Drawing.Point(11, 71);
+            this.labelApprox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelApprox.Name = "labelApprox";
-            this.labelApprox.Size = new System.Drawing.Size(79, 16);
+            this.labelApprox.Size = new System.Drawing.Size(98, 20);
             this.labelApprox.TabIndex = 4;
             this.labelApprox.Text = "Approx: 1x";
             // 
@@ -153,9 +158,10 @@
             // 
             this.labelSpeed.AutoSize = true;
             this.labelSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.labelSpeed.Location = new System.Drawing.Point(8, 14);
+            this.labelSpeed.Location = new System.Drawing.Point(11, 17);
+            this.labelSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.Size = new System.Drawing.Size(69, 16);
+            this.labelSpeed.Size = new System.Drawing.Size(83, 20);
             this.labelSpeed.TabIndex = 3;
             this.labelSpeed.Text = "Speed: 1";
             // 
@@ -163,9 +169,10 @@
             // 
             this.bStop.Enabled = false;
             this.bStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bStop.Location = new System.Drawing.Point(91, 10);
+            this.bStop.Location = new System.Drawing.Point(121, 12);
+            this.bStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bStop.Name = "bStop";
-            this.bStop.Size = new System.Drawing.Size(85, 94);
+            this.bStop.Size = new System.Drawing.Size(113, 116);
             this.bStop.TabIndex = 3;
             this.bStop.Text = "Stop";
             this.bStop.UseVisualStyleBackColor = false;
@@ -174,9 +181,10 @@
             // bStart
             // 
             this.bStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bStart.Location = new System.Drawing.Point(10, 10);
+            this.bStart.Location = new System.Drawing.Point(13, 12);
+            this.bStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bStart.Name = "bStart";
-            this.bStart.Size = new System.Drawing.Size(75, 94);
+            this.bStart.Size = new System.Drawing.Size(100, 116);
             this.bStart.TabIndex = 0;
             this.bStart.Text = "Start";
             this.bStart.UseVisualStyleBackColor = true;
@@ -189,9 +197,10 @@
             this.labelGeneration.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelGeneration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.labelGeneration.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelGeneration.Location = new System.Drawing.Point(0, 341);
+            this.labelGeneration.Location = new System.Drawing.Point(0, 445);
+            this.labelGeneration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGeneration.Name = "labelGeneration";
-            this.labelGeneration.Size = new System.Drawing.Size(99, 16);
+            this.labelGeneration.Size = new System.Drawing.Size(123, 20);
             this.labelGeneration.TabIndex = 2;
             this.labelGeneration.Text = "Generation: 0";
             // 
@@ -200,8 +209,9 @@
             this.pictureBox.BackColor = System.Drawing.Color.Black;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(954, 357);
+            this.pictureBox.Size = new System.Drawing.Size(1273, 465);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
@@ -216,10 +226,11 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 473);
+            this.ClientSize = new System.Drawing.Size(1277, 582);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
