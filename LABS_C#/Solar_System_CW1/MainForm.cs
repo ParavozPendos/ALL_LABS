@@ -337,7 +337,6 @@ namespace Solar_System_CW1
 						DashStyle = System.Drawing.Drawing2D.DashStyle.Dash,
 						DashPattern = new float[] { 1, 1 }
 					},
-
 						(float)(0),
 						(float)(screenPos.y),
 						(float)(pictureBox.Width),
@@ -345,7 +344,7 @@ namespace Solar_System_CW1
 					);
 
 					// Рисуем вертикальную координатную линию 
-					graphics.DrawLine(new Pen(Color.Blue, 2)
+					graphics.DrawLine(new Pen(Color.Blue, 1)
 					{
 						DashStyle = System.Drawing.Drawing2D.DashStyle.Dash,
 						DashPattern = new float[] { 1, 1 }
