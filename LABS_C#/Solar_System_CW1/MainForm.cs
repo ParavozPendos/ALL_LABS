@@ -191,12 +191,8 @@ namespace Solar_System_CW1
 		public MainForm()
 		{
 			InitializeComponent();
-			InitializeSolarSystem();
-			globalSpeed = hsbSpeed.Value;
-			scale = hsbApprox.Value;
-			timer.Interval = 1000 / fps;
-
-			pictureBox.MouseWheel += PictureBox_MouseWheel;
+			
+			
 			
 		}
 
@@ -211,7 +207,16 @@ namespace Solar_System_CW1
 				hsbApprox.Value = hsbApprox.Maximum;
 			else hsbApprox.Value = newValue;
 		}
-		private void MainForm_Load(object sender, EventArgs e) { }
+		private void MainForm_Load(object sender, EventArgs e) 
+		{
+            InitializeSolarSystem();
+
+            globalSpeed = hsbSpeed.Value;
+            scale = hsbApprox.Value;
+            timer.Interval = 1000 / fps;
+
+            pictureBox.MouseWheel += PictureBox_MouseWheel;
+        }
 		private void StartSimulation()
 		{
 			isSimulationStated = true;
