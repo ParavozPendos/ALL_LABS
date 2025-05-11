@@ -15,6 +15,8 @@ graph TD;
   ALL_LABS-->LABS_C_Sharp["C#"];
     LABS_C_Sharp-->C1["C# 1"];
     LABS_C_Sharp-->C2["C# 2"];
+    LABS_C_Sharp-->C3-4["C# 3-4"];
+    LABS_C_Sharp-->CW["Solar System CW"];
   ALL_LABS-->LABS_C_Plus_Plus["C++"];
     LABS_C_Plus_Plus-->CPP1["C++ 1"];
     LABS_C_Plus_Plus-->CPP2["C++ 2"];
