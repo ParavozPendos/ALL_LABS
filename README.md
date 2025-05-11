@@ -5,6 +5,7 @@
 
 - [<img src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png" height="16" style="vertical-align:middle"> Лабораторные работы по C++](https://drive.google.com/drive/folders/1_F-8I2-DN5b8p6-kbm6cEQAcjFATuoMa)
 - [<img src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png" height="16" style="vertical-align:middle"> Лабораторные работы по C#](https://drive.google.com/drive/folders/1rwWDtmsvWua6DeTQ_o7r-3eUKcDsQHDD)
+- [<img src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png" height="16" style="vertical-align:middle"> Курсовая работа C#](https://drive.google.com/drive/folders/1-sdncNRWRKdzvcSVXP3ug0l34a2e0K1J)
 
 ## Cтруктура проекта на данный момент:
 <details>
