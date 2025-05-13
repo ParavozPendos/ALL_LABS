@@ -17,7 +17,7 @@ namespace Solar_System_CW1
         {
             if (!isRoot && body.speed > 0)
             {
-                double angularSpeed = (body.speed / (body.radius + 1)) * globalSpeed * 0.001;
+                double angularSpeed = (body.speed / (body.radius)) * globalSpeed * 0.001;
                 body.UpdatePosition(angularSpeed);
             }
 

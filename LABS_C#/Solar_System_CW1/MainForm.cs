@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
@@ -23,6 +24,8 @@ namespace Solar_System_CW1
 		private int generation = 0;
 		private bool isDragging = false;
 		private bool isSimulationStated = false;
+
+		private DateTime timePassed = new DateTime();
 		
 		private Tbody Sun;
 		private Tbody Earth;
@@ -223,6 +226,7 @@ namespace Solar_System_CW1
 			pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
 			graphics = Graphics.FromImage(pictureBox.Image);
 			timer.Start();
+			secTimer.Start();
 		}
 		private void StopSimulation()
 		{
@@ -236,18 +240,17 @@ namespace Solar_System_CW1
 			{
 				globalSpeed = hsbSpeed.Value;
 				bStop.Text = "Stop";
-				bStop.BackColor= Color.Yellow;
-			}
+				bStop.BackColor= Color.Yellow; 
+            }
 		}
 		private void DrawSimulation()
 		{
 			//UI
 			labelGeneration.Text = $"Generation: {generation}";
-			labelSpeed.Text = $"Speed: {globalSpeed}";
+            labelSeconds.Text = $"Seconds: {timePassed.ToLongTimeString()}";
+            labelSpeed.Text = $"Speed: {globalSpeed}";
 			labelApprox.Text = $"Approx: {scale}x";
-			
-			
-
+            
             //pictuteBox
             graphics.Clear(Color.Black);
 
@@ -366,14 +369,19 @@ namespace Solar_System_CW1
 		}
 		private void timer_Tick(object sender, EventArgs e)
 		{
-			generation += (int)(globalSpeed);
+			if (globalSpeed != 0) generation++;
 
 			MoveLogic.UpdateAllPositions(globalSpeed, Sun);
 			DrawSimulation();
 		}
+        private void secTimer_Tick(object sender, EventArgs e)
+        {
+			timePassed = timePassed.AddSeconds(globalSpeed);
+        }
 
-		// Обработчики управления
-		private void bStart_MouseClick(object sender, EventArgs e)
+
+        // Обработчики управления
+        private void bStart_MouseClick(object sender, EventArgs e)
 		{
 			StartSimulation();
 

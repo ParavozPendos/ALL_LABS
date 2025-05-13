@@ -39,9 +39,11 @@
             this.labelSpeed = new System.Windows.Forms.Label();
             this.bStop = new System.Windows.Forms.Button();
             this.bStart = new System.Windows.Forms.Button();
+            this.labelSeconds = new System.Windows.Forms.Label();
             this.labelGeneration = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.secTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +73,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.labelSeconds);
             this.splitContainer1.Panel2.Controls.Add(this.labelGeneration);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox);
             this.splitContainer1.Size = new System.Drawing.Size(952, 478);
@@ -183,6 +186,19 @@
             this.bStart.UseVisualStyleBackColor = true;
             this.bStart.MouseClick += new System.Windows.Forms.MouseEventHandler(this.bStart_MouseClick);
             // 
+            // labelSeconds
+            // 
+            this.labelSeconds.AutoSize = true;
+            this.labelSeconds.BackColor = System.Drawing.SystemColors.ControlText;
+            this.labelSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.labelSeconds.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelSeconds.Location = new System.Drawing.Point(0, 330);
+            this.labelSeconds.Name = "labelSeconds";
+            this.labelSeconds.Size = new System.Drawing.Size(84, 16);
+            this.labelSeconds.TabIndex = 3;
+            this.labelSeconds.Text = "Seconds: 0";
+            // 
             // labelGeneration
             // 
             this.labelGeneration.AutoSize = true;
@@ -214,6 +230,11 @@
             // 
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // secTimer
+            // 
+            this.secTimer.Interval = 1000;
+            this.secTimer.Tick += new System.EventHandler(this.secTimer_Tick);
             // 
             // MainForm
             // 
@@ -254,6 +275,8 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.RichTextBox rtbDescription;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label labelSeconds;
+        private System.Windows.Forms.Timer secTimer;
     }
 }
 
