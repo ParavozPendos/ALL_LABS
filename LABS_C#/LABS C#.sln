@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INST_LAB_3-4", "INST_LAB_3\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solar_System_CW1", "Solar_System_CW1\Solar_System_CW1.csproj", "{29B0909D-4771-442B-AD92-A44D96E05CC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INST_LAB_5", "INST_LAB_5\INST_LAB_5.csproj", "{C760D7A6-EF42-466A-B423-08B64DB3D308}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +35,15 @@ Global
 		{29B0909D-4771-442B-AD92-A44D96E05CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29B0909D-4771-442B-AD92-A44D96E05CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29B0909D-4771-442B-AD92-A44D96E05CC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C760D7A6-EF42-466A-B423-08B64DB3D308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C760D7A6-EF42-466A-B423-08B64DB3D308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C760D7A6-EF42-466A-B423-08B64DB3D308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C760D7A6-EF42-466A-B423-08B64DB3D308}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {178B5390-ECE0-4CC8-B40B-9318A0F08BAC}
 	EndGlobalSection
 EndGlobal
