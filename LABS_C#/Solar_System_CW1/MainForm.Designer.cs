@@ -44,6 +44,11 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.secTimer = new System.Windows.Forms.Timer(this.components);
+            this.ContextOnBody = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSM_delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextOnEmpty = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSM_add = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -51,6 +56,8 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.ContextOnBody.SuspendLayout();
+            this.ContextOnEmpty.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -129,7 +136,7 @@
             this.hsbApprox.Name = "hsbApprox";
             this.hsbApprox.Size = new System.Drawing.Size(312, 17);
             this.hsbApprox.TabIndex = 6;
-            this.hsbApprox.Value = 1;
+            this.hsbApprox.Value = 2;
             this.hsbApprox.ValueChanged += new System.EventHandler(this.hsbApprox_ValueChanged);
             // 
             // hsbSpeed
@@ -236,6 +243,40 @@
             this.secTimer.Interval = 1000;
             this.secTimer.Tick += new System.EventHandler(this.secTimer_Tick);
             // 
+            // ContextOnBody
+            // 
+            this.ContextOnBody.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_delete,
+            this.TSM_edit});
+            this.ContextOnBody.Name = "ContextOnBody";
+            this.ContextOnBody.Size = new System.Drawing.Size(155, 48);
+            // 
+            // TSM_delete
+            // 
+            this.TSM_delete.Name = "TSM_delete";
+            this.TSM_delete.Size = new System.Drawing.Size(154, 22);
+            this.TSM_delete.Text = "Удалить";
+            this.TSM_delete.Click += new System.EventHandler(this.TSM_delete_Click);
+            // 
+            // TSM_edit
+            // 
+            this.TSM_edit.Name = "TSM_edit";
+            this.TSM_edit.Size = new System.Drawing.Size(154, 22);
+            this.TSM_edit.Text = "Редактировать";
+            // 
+            // ContextOnEmpty
+            // 
+            this.ContextOnEmpty.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_add});
+            this.ContextOnEmpty.Name = "ContextOnEmpty";
+            this.ContextOnEmpty.Size = new System.Drawing.Size(125, 26);
+            // 
+            // TSM_add
+            // 
+            this.TSM_add.Name = "TSM_add";
+            this.TSM_add.Size = new System.Drawing.Size(124, 22);
+            this.TSM_add.Text = "добавить";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +297,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.ContextOnBody.ResumeLayout(false);
+            this.ContextOnEmpty.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -277,6 +320,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelSeconds;
         private System.Windows.Forms.Timer secTimer;
+        private System.Windows.Forms.ContextMenuStrip ContextOnBody;
+        private System.Windows.Forms.ToolStripMenuItem TSM_delete;
+        private System.Windows.Forms.ToolStripMenuItem TSM_edit;
+        private System.Windows.Forms.ContextMenuStrip ContextOnEmpty;
+        private System.Windows.Forms.ToolStripMenuItem TSM_add;
     }
 }
 

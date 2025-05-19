@@ -8,29 +8,26 @@ namespace Solar_System_CW1
 {
     internal class MoveLogic
     {
-        public static void UpdateAllPositions(double globalSpeed, Tbody rootBody)
+        //private const double G = 6.67430e-11;
+
+        private static void UpdatePosition(Tbody body, double angularSpeed)
         {
-            UpdatePositionRecursive(rootBody, globalSpeed, true);
+            body.angle += angularSpeed;
+            body.currentPos = new Coordinate(
+                body.rotationCenter.x + body.radius * Math.Cos(body.angle),
+                body.rotationCenter.y + body.radius * Math.Sin(body.angle)
+            );
         }
 
-        private static void UpdatePositionRecursive(Tbody body, double globalSpeed, bool isRoot)
+        public static void UpdateAllPositions(double globalSpeed)
         {
-            if (!isRoot && body.speed > 0)
+            foreach(var body in Tbody.AllObjects)
             {
-                double angularSpeed = (body.speed / (body.radius)) * globalSpeed * 0.001;
-                body.UpdatePosition(angularSpeed);
-            }
-
-            foreach (var satellite in body.satelliteList)
-            {
-                UpdatePositionRecursive(satellite, globalSpeed, false);
-            }
-
-            foreach (var satellite in body.satelliteList)
-            {
-                foreach (var moon in satellite.satelliteList)
+                if (body.speed != 0) 
                 {
-                    moon.rotationCenter = satellite.currentPos;
+                    double angularSpeed = (body.speed / (body.radius)) * globalSpeed * 0.001;
+                    body.rotationCenter = body.parent.currentPos;
+                    UpdatePosition(body, angularSpeed);
                 }
             }
         }

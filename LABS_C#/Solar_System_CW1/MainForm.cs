@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -19,203 +20,28 @@ namespace Solar_System_CW1
 		private Coordinate systemCenter = new Coordinate();
 		private Coordinate lastMousePos = new Coordinate();
 		private double globalSpeed;
-		private double scale;
+        private double scale;
 		private int fps = 144;
 		private int generation = 0;
 		private bool isDragging = false;
 		private bool isSimulationStated = false;
 
 		private DateTime timePassed = new DateTime();
-		
-		private Tbody Sun;
-		private Tbody Earth;
-		private Tbody Mars;
-		private Tbody Venus;
-		private Tbody Mercury;
-		private Tbody Moon;
-		private Tbody Phobos;
-		private Tbody Deimos;
-
 		private Tbody selectedBody = null;
+		private Tbody contextBody = null;
 
-		private void InitializeSolarSystem()
-		{
-			//Солнце
-			Sun = new Tbody(
-				description: 
-				"Центральная звезда нашей планетарной системы, вокруг которой вращаются все остальные объекты. " +
-				"Представляет собой огромный раскалённый плазменный шар, излучающий свет и энергию. " +
-				"Играет ключевую роль в поддержании жизни на Земле, определяя климат и погодные условия. " +
-				"В древних культурах почиталось как божество. Современная наука изучает солнечную активность и её влияние на космическую погоду.",
-
-                name: "Sun",
-				currentPos: new Coordinate(),
-				rotationCenter: new Coordinate(),
-				radius: 0,
-				speed: 0,
-				size: 10,
-				color: Brushes.Yellow
-			);
-
-			//Земля
-			Earth = new Tbody(
-				description: 
-				"Уникальная голубая планета, единственная известная науке, где существует жизнь. " +
-				"Отличается наличием больших запасов жидкой воды и кислородной атмосферы. " +
-				"Имеет сложную геологическую структуру с подвижными тектоническими плитами. " +
-				"Естественный спутник - Луна - оказывает значительное влияние на приливы и отливы. " +
-				"На поверхности сочетаются океаны, материки и разнообразные экосистемы.",
-
-                name: "Earth",
-				currentPos: new Coordinate(150, 0),
-				rotationCenter: Sun.currentPos,
-				radius: 150,
-				speed: 0.1,
-				size: 6,
-				color: Brushes.Green
-			);
-
-			//Марс
-			Mars = new Tbody(
-				description:
-				"Красноватая планета, получившая своё название в честь римского бога войны. " +
-				"Поверхность покрыта кратерами, вулканами и каньонами, включая гигантскую систему долин Маринер. " +
-				"Атмосфера разрежена и непригодна для дыхания. В прошлом, вероятно, имела реки и озёра. " +
-				"Интерес учёных вызывает возможное наличие примитивной жизни в прошлом или настоящем. " +
-				"Имеет два небольших спутника неправильной формы.",
-
-				name: "Mars",
-				currentPos: new Coordinate(228, 0),
-				rotationCenter: Sun.currentPos,
-				radius: 228,
-				speed: 0.053,
-				size: 4,
-				color: Brushes.Red
-			);
-
-			//Венера
-			Venus = new Tbody(
-				description: 
-				"Ярчайший объект на ночном небе после Луны, названный в честь богини любви. " +
-				"Покрыта плотным слоем облаков, создающих сильный парниковый эффект. " +
-				"Поверхность скрыта от наблюдения, но радиолокационные исследования выявили многочисленные вулканы и лавовые равнины. " +
-				"Вращается в обратном направлении по сравнению с другими планетами. " +
-				"Атмосферное давление у поверхности чрезвычайно высокое.",
-
-				name: "Venus",
-				currentPos: new Coordinate(108, 0),
-				rotationCenter: Sun.currentPos,
-				radius: 108,
-				speed: 0.416,
-				size: 5,
-				color: Brushes.OrangeRed
-			);
-
-			//Меркурий
-			Mercury = new Tbody(
-                description:
-                "Самая маленькая и ближайшая к Солнцу планета системы. " +
-				"Характеризуется крайне разреженной газовой оболочкой. " +
-				"Поверхность испещрена многочисленными ударными кратерами, напоминающими лунный ландшафт. " +
-				"Имеет крупное железное ядро, составляющее значительную часть её объёма. " +
-				"Из-за близости к светилу наблюдать его с Земли можно только на рассвете или закате. " +
-				"Совершает сложное движение по орбите.",
-
-                name: "Mercury",
-				currentPos: new Coordinate(58, 0),
-				rotationCenter: Sun.currentPos,
-				radius: 58,
-				speed: 0.416,
-				size: 3,
-				color: Brushes.RosyBrown
-			);
-
-			//Луна
-			Moon = new Tbody(
-                description:
-                "Единственный естественный спутник Земли, оказывающий существенное влияние на нашу планету. " +
-				"Поверхность состоит из светлых материковых и тёмных морских участков, образованных древними лавовыми потоками. " +
-				"Отсутствие атмосферы приводит к резким перепадам между дневными и ночными температурами. " +
-				"Является самым изученным внеземным телом, на которое высаживались люди. " +
-				"Приливы, вызываемые её гравитацией, важны для земных экосистем.",
-
-                name: "Moon",
-				currentPos: new Coordinate(Earth.currentPos.x + 15, 0),
-				rotationCenter: Earth.currentPos,
-				radius: 15,
-				speed: 1.3,
-				size: 2,
-				color: Brushes.WhiteSmoke
-			);
-
-			//Фобос
-			Phobos = new Tbody(
-				description:
-                "Больший из двух марсианских спутников, названный в честь мифологического персонажа, олицетворявшего страх. " +
-				"Имеет неправильную форму с многочисленными кратерами и бороздами. " +
-				"Орбита расположена экстремально близко к поверхности Марса. " +
-				"Постепенно приближается к планете под действием приливных сил. " +
-				"Поверхность покрыта толстым слоем реголита. " +
-				"Предполагается, что может быть захваченным астероидом.",
-
-				name: "Phobos",
-				currentPos: new Coordinate(Mars.currentPos.x + 7, 0),
-				rotationCenter: Mars.currentPos,
-				radius: 7,
-				speed: 114.4,
-				size: 1,
-				color: Brushes.DarkGray
-			);
-
-			//Деймос
-			Deimos = new Tbody(
-				description:
-                "Меньший спутник Марса, получивший имя мифологического бога ужаса. " +
-				"Отличается более гладкой поверхностью по сравнению с Фобосом, так как большинство кратеров засыпаны рыхлым материалом. " +
-				"Орбита постепенно удаляется от Марса. Имеет вытянутую форму с относительно ровными очертаниями. " +
-				"Как и Фобос, вероятно, является захваченным астероидом. " +
-				"Поверхность выглядит более однородной из-за толстого слоя пыли.",
-
-				name: "Deimos",
-				currentPos: new Coordinate(Mars.currentPos.x + 12, 0),
-				rotationCenter: Mars.currentPos,
-				radius: 12,
-				speed: 30.4,
-				size: 1,
-				color: Brushes.Pink
-			);
-
-			//Запись списка спутников
-			Sun.AddSatellite(Earth, Mars, Venus, Mercury);
-			Earth.AddSatellite(Moon);
-			Mars.AddSatellite(Phobos, Deimos);
-		}
-		
 		public MainForm()
 		{
 			InitializeComponent();
-			
-			
-			
 		}
 
-		private void PictureBox_MouseWheel(object sender, MouseEventArgs e)
-		{
-			int change = hsbApprox.LargeChange;
-			int newValue = hsbApprox.Value + (e.Delta > 0 ? change : -change);
-
-			if (newValue < hsbApprox.Minimum)
-				hsbApprox.Value = hsbApprox.Minimum;
-			else if (newValue > hsbApprox.Maximum)
-				hsbApprox.Value = hsbApprox.Maximum;
-			else hsbApprox.Value = newValue;
-		}
+		
 		private void MainForm_Load(object sender, EventArgs e) 
 		{
-            InitializeSolarSystem();
-
+            Tbody.InitializeSolarSystem();
+			
             globalSpeed = hsbSpeed.Value;
-            scale = hsbApprox.Value;
+            scale = (double)hsbApprox.Value / 2;
             timer.Interval = 1000 / fps;
 
             pictureBox.MouseWheel += PictureBox_MouseWheel;
@@ -371,7 +197,7 @@ namespace Solar_System_CW1
 		{
 			if (globalSpeed != 0) generation++;
 
-			MoveLogic.UpdateAllPositions(globalSpeed, Sun);
+			MoveLogic.UpdateAllPositions(globalSpeed);
 			DrawSimulation();
 		}
         private void secTimer_Tick(object sender, EventArgs e)
@@ -401,15 +227,19 @@ namespace Solar_System_CW1
 
 		private void hsbApprox_ValueChanged(object sender, EventArgs e)
 		{
-			scale = (float)hsbApprox.Value;
+			scale = (float)hsbApprox.Value / 2;
 		}
 
 		private void pictureBox_MouseDown(object sender, MouseEventArgs e)
 		{
 			lastMousePos.x = e.Location.X;
 			lastMousePos.y = e.Location.Y;
+            Coordinate LMB_Pos = new Coordinate(
+                    ((e.X - pictureBox.Width / 2.0) / scale) + systemCenter.x,
+                    ((e.Y - pictureBox.Height / 2.0) / scale) + systemCenter.y
+                );
 
-			if (e.Button == MouseButtons.Middle)
+            if (e.Button == MouseButtons.Middle)
 			{
 				isDragging = true;
 				
@@ -417,11 +247,6 @@ namespace Solar_System_CW1
 			}
 			if (e.Button == MouseButtons.Left)
 			{
-				Coordinate LMB_Pos = new Coordinate(
-					((e.X - pictureBox.Width / 2.0) / scale) + systemCenter.x,
-					((e.Y - pictureBox.Height / 2.0) / scale) + systemCenter.y
-				);
-
 				foreach (var body in Tbody.AllObjects)
 				{
 					if (body.IsPointOnBody(LMB_Pos, scale))
@@ -439,8 +264,23 @@ namespace Solar_System_CW1
 					}
 				}
             }
-		}
-
+            if (e.Button == MouseButtons.Right)
+            {
+                foreach (var body in Tbody.AllObjects)
+                {
+                    if (body.IsPointOnBody(LMB_Pos, scale))
+                    {
+						contextBody = body;
+                        ContextOnBody.Show(pictureBox, e.Location);
+						break;
+                    }
+					else
+					{
+						ContextOnEmpty.Show(pictureBox, e.Location);
+					}
+                }
+            }
+        }
 		private void pictureBox_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (isDragging && e.Button == MouseButtons.Middle)
@@ -455,8 +295,21 @@ namespace Solar_System_CW1
 				lastMousePos.y = e.Location.Y;
             }
 		}
+        private void PictureBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+			ContextOnBody.Hide();
+			ContextOnEmpty.Hide();
 
-		private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+            int change = hsbApprox.LargeChange;
+            int newValue = hsbApprox.Value + (e.Delta > 0 ? change : -change);
+
+            if (newValue < hsbApprox.Minimum)
+                hsbApprox.Value = hsbApprox.Minimum;
+            else if (newValue > hsbApprox.Maximum)
+                hsbApprox.Value = hsbApprox.Maximum;
+            else hsbApprox.Value = newValue;
+        }
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Middle)
 			{
@@ -464,13 +317,11 @@ namespace Solar_System_CW1
 				pictureBox.Cursor = Cursors.Default;
 			}
 		}
-
 		private void pictureBox_MouseLeave(object sender, EventArgs e)
 		{
 			isDragging = false;
 			pictureBox.Cursor = Cursors.Default;
 		}
-
         private void MainForm_Resize(object sender, EventArgs e)
         {
 			if (isSimulationStated)
@@ -478,6 +329,10 @@ namespace Solar_System_CW1
                 pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
                 graphics = Graphics.FromImage(pictureBox.Image);
             }
+        }
+        private void TSM_delete_Click(object sender, EventArgs e)
+        {
+			Tbody.Deleter(contextBody);
         }
     }
 }
