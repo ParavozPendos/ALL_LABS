@@ -2,7 +2,7 @@
 using namespace std;
 
 const unsigned int L_MAX = 100;
-int matrix[L_MAX][L_MAX];
+int arr[L_MAX][L_MAX];
 
 void MatrixInit(int rows, int cols)
 {
@@ -10,7 +10,7 @@ void MatrixInit(int rows, int cols)
     {
         for (size_t j = 0; j < cols; j++)
         {
-            matrix[i][j] = rand() % 10;
+            arr[i][j] = rand() % 10;
         }
     }
 }
@@ -21,7 +21,7 @@ void Printer(int rows, int cols)
     {
         for (size_t j = 0; j < cols; j++)
         {
-            cout << matrix[i][j] << "\t";
+            cout << arr[i][j] << "\t";
         }
         cout << endl;
     }
@@ -37,7 +37,7 @@ int ColSum(int rows, int col)
     int sum = 0;
     for (size_t i = 0; i < rows; i++)
     {
-        sum += matrix[i][col];
+        sum += arr[i][col];
     }
     return sum;
 }

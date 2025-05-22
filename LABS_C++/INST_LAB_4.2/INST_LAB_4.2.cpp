@@ -6,37 +6,37 @@ const unsigned int L_MAX = 100;
 int matrix1[L_MAX][L_MAX];
 int matrix2[L_MAX][L_MAX];
 
-void MatrixInit(int rows, int cols, int matrix[L_MAX][L_MAX])
+void MatrixInit(int rows, int cols, int arr[L_MAX][L_MAX])
 {
     for (size_t i = 0; i < rows; i++)
     {
         for (size_t j = 0; j < cols; j++)
         {
-            matrix[i][j] = rand() % 100;
+            arr[i][j] = rand() % 100;
         }
     }
 }
 
-void Printer(int rows, int cols, int matrix[L_MAX][L_MAX])
+void Printer(int rows, int cols, int arr[L_MAX][L_MAX])
 {
     for (size_t i = 0; i < rows; i++)
     {
         for (size_t j = 0; j < cols; j++)
         {
-            cout << matrix[i][j] << "\t";
+            cout << arr[i][j] << "\t";
         }
         cout << endl;
     }
     cout << endl;
 }
-void ColSwapper(int cols, int rows, int first, int second, int matrix[L_MAX][L_MAX])
+void ColSwapper(int cols, int rows, int first, int second, int arr[L_MAX][L_MAX])
 {
     first--;
     second--;
 
     for (size_t i = 0; i < rows; i++)
     {
-        swap(matrix[i][first], matrix[i][second]);
+        swap(arr[i][first], arr[i][second]);
     }
 }
 

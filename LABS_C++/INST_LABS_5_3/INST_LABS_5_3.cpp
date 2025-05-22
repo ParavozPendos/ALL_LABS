@@ -42,22 +42,22 @@ void Printer(int rows, int cols)
 
 }
 
-void Sort(int row, int cols)
+void Sort(int size, int arr[])
 {
-    for (int i = 2; i < cols; i++)
+    for (int i = 2; i < size; i++)
     {
-        if (matrix[row][i - 1] < matrix[row][i])
+        if (arr[i - 1] < arr[i])
         {
-            matrix[row][0] = matrix[row][i];
+            arr[0] = arr[i];
             int j = i - 1;
 
-            while (matrix[row][j] < matrix[row][0])
+            while (arr[j] < arr[0])
             {
-                matrix[row][j + 1] = matrix[row][j];
+                arr[j + 1] = arr[j];
                 j--;
             }
 
-            matrix[row][j + 1] = matrix[row][0];
+            arr[j + 1] = arr[0];
         }
     }
 }
@@ -82,7 +82,7 @@ int main()
 
     for (int i = 0; i < rows; i++)
     {
-        Sort(i, cols);
+        Sort(cols, matrix[i]);
     }
 
     cout << "Отсортированная матрица" << endl;
