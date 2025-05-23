@@ -2,7 +2,6 @@
 using namespace std;
 
 const unsigned int L_MAX = 100;
-const int MAXINT = 2147483647;
 int matrix[L_MAX][L_MAX + 1];
 
 void MatrixInit(int rows, int cols)
