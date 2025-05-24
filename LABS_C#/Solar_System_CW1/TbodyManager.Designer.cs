@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.bApply = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TB_Name = new System.Windows.Forms.TextBox();
-            this.TB_Position_X = new System.Windows.Forms.TextBox();
-            this.TB_Position_Y = new System.Windows.Forms.TextBox();
-            this.TB_Parent = new System.Windows.Forms.TextBox();
-            this.TB_Radius = new System.Windows.Forms.TextBox();
-            this.TB_Speed = new System.Windows.Forms.TextBox();
-            this.TB_Size = new System.Windows.Forms.TextBox();
-            this.BodyColorDialog = new System.Windows.Forms.ColorDialog();
             this.bSelectColor = new System.Windows.Forms.Button();
+            this.TB_Size = new System.Windows.Forms.TextBox();
+            this.TB_Speed = new System.Windows.Forms.TextBox();
+            this.TB_Radius = new System.Windows.Forms.TextBox();
+            this.TB_Parent = new System.Windows.Forms.TextBox();
+            this.TB_Position_Y = new System.Windows.Forms.TextBox();
+            this.TB_Position_X = new System.Windows.Forms.TextBox();
+            this.TB_Name = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.BodyColorDialog = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // bApply
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.bApply.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(12, 321);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(341, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bApply.Location = new System.Drawing.Point(12, 321);
+            this.bApply.Name = "bApply";
+            this.bApply.Size = new System.Drawing.Size(341, 40);
+            this.bApply.TabIndex = 0;
+            this.bApply.Text = "Apply";
+            this.bApply.UseVisualStyleBackColor = true;
+            this.bApply.Click += new System.EventHandler(this.bApply_Click);
             // 
             // labelName
             // 
@@ -129,96 +129,6 @@
             this.panel1.Size = new System.Drawing.Size(341, 303);
             this.panel1.TabIndex = 8;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(8, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Radius: ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(8, 143);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 16);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Speed: ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(8, 169);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 16);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Size: ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(8, 203);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Color";
-            // 
-            // TB_Name
-            // 
-            this.TB_Name.Location = new System.Drawing.Point(132, 9);
-            this.TB_Name.Name = "TB_Name";
-            this.TB_Name.Size = new System.Drawing.Size(193, 20);
-            this.TB_Name.TabIndex = 12;
-            // 
-            // TB_Position_X
-            // 
-            this.TB_Position_X.Location = new System.Drawing.Point(132, 35);
-            this.TB_Position_X.Name = "TB_Position_X";
-            this.TB_Position_X.Size = new System.Drawing.Size(193, 20);
-            this.TB_Position_X.TabIndex = 13;
-            // 
-            // TB_Position_Y
-            // 
-            this.TB_Position_Y.Location = new System.Drawing.Point(132, 61);
-            this.TB_Position_Y.Name = "TB_Position_Y";
-            this.TB_Position_Y.Size = new System.Drawing.Size(193, 20);
-            this.TB_Position_Y.TabIndex = 14;
-            // 
-            // TB_Parent
-            // 
-            this.TB_Parent.Location = new System.Drawing.Point(132, 87);
-            this.TB_Parent.Name = "TB_Parent";
-            this.TB_Parent.Size = new System.Drawing.Size(193, 20);
-            this.TB_Parent.TabIndex = 15;
-            // 
-            // TB_Radius
-            // 
-            this.TB_Radius.Location = new System.Drawing.Point(132, 113);
-            this.TB_Radius.Name = "TB_Radius";
-            this.TB_Radius.ReadOnly = true;
-            this.TB_Radius.Size = new System.Drawing.Size(193, 20);
-            this.TB_Radius.TabIndex = 16;
-            // 
-            // TB_Speed
-            // 
-            this.TB_Speed.Location = new System.Drawing.Point(132, 139);
-            this.TB_Speed.Name = "TB_Speed";
-            this.TB_Speed.Size = new System.Drawing.Size(193, 20);
-            this.TB_Speed.TabIndex = 17;
-            // 
-            // TB_Size
-            // 
-            this.TB_Size.Location = new System.Drawing.Point(132, 165);
-            this.TB_Size.Name = "TB_Size";
-            this.TB_Size.Size = new System.Drawing.Size(193, 20);
-            this.TB_Size.TabIndex = 18;
-            // 
             // bSelectColor
             // 
             this.bSelectColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -231,12 +141,102 @@
             this.bSelectColor.UseVisualStyleBackColor = true;
             this.bSelectColor.Click += new System.EventHandler(this.bSelectColor_Click);
             // 
+            // TB_Size
+            // 
+            this.TB_Size.Location = new System.Drawing.Point(132, 165);
+            this.TB_Size.Name = "TB_Size";
+            this.TB_Size.Size = new System.Drawing.Size(193, 20);
+            this.TB_Size.TabIndex = 18;
+            // 
+            // TB_Speed
+            // 
+            this.TB_Speed.Location = new System.Drawing.Point(132, 139);
+            this.TB_Speed.Name = "TB_Speed";
+            this.TB_Speed.Size = new System.Drawing.Size(193, 20);
+            this.TB_Speed.TabIndex = 17;
+            // 
+            // TB_Radius
+            // 
+            this.TB_Radius.Location = new System.Drawing.Point(132, 113);
+            this.TB_Radius.Name = "TB_Radius";
+            this.TB_Radius.ReadOnly = true;
+            this.TB_Radius.Size = new System.Drawing.Size(193, 20);
+            this.TB_Radius.TabIndex = 16;
+            // 
+            // TB_Parent
+            // 
+            this.TB_Parent.Location = new System.Drawing.Point(132, 87);
+            this.TB_Parent.Name = "TB_Parent";
+            this.TB_Parent.Size = new System.Drawing.Size(193, 20);
+            this.TB_Parent.TabIndex = 15;
+            // 
+            // TB_Position_Y
+            // 
+            this.TB_Position_Y.Location = new System.Drawing.Point(132, 61);
+            this.TB_Position_Y.Name = "TB_Position_Y";
+            this.TB_Position_Y.Size = new System.Drawing.Size(193, 20);
+            this.TB_Position_Y.TabIndex = 14;
+            // 
+            // TB_Position_X
+            // 
+            this.TB_Position_X.Location = new System.Drawing.Point(132, 35);
+            this.TB_Position_X.Name = "TB_Position_X";
+            this.TB_Position_X.Size = new System.Drawing.Size(193, 20);
+            this.TB_Position_X.TabIndex = 13;
+            // 
+            // TB_Name
+            // 
+            this.TB_Name.Location = new System.Drawing.Point(132, 9);
+            this.TB_Name.Name = "TB_Name";
+            this.TB_Name.Size = new System.Drawing.Size(193, 20);
+            this.TB_Name.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(8, 203);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Color";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(8, 169);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 16);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Size: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(8, 143);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 16);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Speed: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(8, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Radius: ";
+            // 
             // TbodyManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 373);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bApply);
             this.Controls.Add(this.panel1);
             this.Name = "TbodyManager";
             this.Text = "TbodyManager";
@@ -249,7 +249,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bApply;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

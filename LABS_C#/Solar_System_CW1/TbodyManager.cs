@@ -20,9 +20,12 @@ namespace Solar_System_CW1
         private Tbody editingBody;
         private bool isEditMode;
         private bool isAddMode;
-        public TbodyManager(Tbody body, ContextMode contextMode)
+        private MainForm mainForm;
+        public TbodyManager(Tbody body, ContextMode contextMode, MainForm form)
         {
             InitializeComponent();
+            mainForm = form;
+            MainForm.StopSimulation(mainForm);
             
             if (contextMode == ContextMode.editMode)
             {
@@ -32,6 +35,7 @@ namespace Solar_System_CW1
             }
             else if (contextMode == ContextMode.addMode) 
             {
+                editingBody = body;
                 isAddMode = true; 
                 Text = "Add mode"; 
             }
@@ -54,7 +58,7 @@ namespace Solar_System_CW1
                 }
                 else
                 {
-                    bSelectColor.BackColor = Color.White;
+                    bSelectColor.BackColor = Color.Red;
                 }
             }
         }
@@ -81,22 +85,24 @@ namespace Solar_System_CW1
             editingBody.currentPos.y = double.Parse(TB_Position_Y.Text);
             editingBody.speed = double.Parse(TB_Speed.Text);
             editingBody.size = double.Parse(TB_Size.Text);
-            editingBody.color = new SolidBrush(BodyColorDialog.Color);
+            editingBody.color = new SolidBrush(bSelectColor.BackColor);
 
 
         }
         private void Adder()
         {
-            Tbody itParent = Tbody.AllObjects.First();
+            Tbody itParent = null;
             foreach (var item in Tbody.AllObjects)
             {
                 if (TB_Parent.Text == item.name)
                 {
                     itParent = item;
+                    break; // Нашли родителя, можно выйти из цикла
                 }
             }
-            double relX, relY,itRadius;
-            
+
+            double relX, relY, itRadius;
+
             if (itParent != null)
             {
                 relX = double.Parse(TB_Position_X.Text) - itParent.currentPos.x;
@@ -110,20 +116,24 @@ namespace Solar_System_CW1
                 itRadius = Math.Sqrt(relY * relY + relX * relX);
             }
 
+            // Создаем новый объект
             editingBody = new Tbody
-                (
+            (
+                description: "Ваш новый объект!",
+                name: TB_Name.Text,
+                currentPos: new Coordinate(double.Parse(TB_Position_X.Text), double.Parse(TB_Position_Y.Text)),
+                parent: itParent,
+                radius: itRadius,
+                speed: double.Parse(TB_Speed.Text),
+                size: double.Parse(TB_Size.Text),
+                color: new SolidBrush(bSelectColor.BackColor) // Используем цвет из кнопки, а не диалога
+            );
 
-                    description:
-                    "Ваш новый объект!",
-
-                    name: TB_Name.Text,
-                    currentPos: new Coordinate(double.Parse(TB_Position_X.Text), double.Parse(TB_Position_Y.Text)),
-                    parent: itParent,
-                    radius: itRadius,
-                    speed: double.Parse(TB_Speed.Text),
-                    size: double.Parse(TB_Size.Text),
-                    color: new SolidBrush(BodyColorDialog.Color)
-                );
+            // Добавляем к родителю, если он существует
+            if (itParent != null)
+            {
+                itParent.AddSatellite(editingBody);
+            }
         }
 
 
@@ -133,16 +143,12 @@ namespace Solar_System_CW1
             bSelectColor.BackColor = BodyColorDialog.Color;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bApply_Click(object sender, EventArgs e)
         {
-            if (isAddMode)
-            {
-                Adder();
-            }
-            else if (isEditMode)
-            {
-                Editor();
-            }
+            if (isAddMode) Adder();
+            else if (isEditMode) Editor();
+
+            MainForm.StartSimulation(mainForm);
             Close();
         }
     }

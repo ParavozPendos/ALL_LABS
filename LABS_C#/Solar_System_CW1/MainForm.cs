@@ -47,30 +47,31 @@ namespace Solar_System_CW1
 
             pictureBox.MouseWheel += PictureBox_MouseWheel;
         }
-		private void StartSimulation()
-		{
-			isSimulationStated = true;
-			pictureBox.Image = new Bitmap(pictureBox.Width, pictureBox.Height);
-			graphics = Graphics.FromImage(pictureBox.Image);
-			timer.Start();
-			secTimer.Start();
-		}
-		private void StopSimulation()
-		{
-			if (globalSpeed != 0)
-			{
-				globalSpeed = 0;
-				bStop.Text = "Continue";
-				bStop.BackColor = Color.LightGreen;
-			}
-			else
-			{
-				globalSpeed = hsbSpeed.Value;
-				bStop.Text = "Stop";
-				bStop.BackColor= Color.Yellow; 
+        public static void StartSimulation(MainForm form)
+        {
+            form.isSimulationStated = true;
+            form.pictureBox.Image = new Bitmap(form.pictureBox.Width, form.pictureBox.Height);
+            form.graphics = Graphics.FromImage(form.pictureBox.Image);
+            form.timer.Start();
+            form.secTimer.Start();
+        }
+
+        public static void StopSimulation(MainForm form)
+        {
+            if (form.globalSpeed != 0)
+            {
+                form.globalSpeed = 0;
+                form.bStop.Text = "Continue";
+                form.bStop.BackColor = Color.LightGreen;
             }
-		}
-		private void DrawSimulation()
+            else
+            {
+                form.globalSpeed = form.hsbSpeed.Value;
+                form.bStop.Text = "Stop";
+                form.bStop.BackColor = Color.Yellow;
+            }
+        }
+        private void DrawSimulation()
 		{
 			//UI
 			labelGeneration.Text = $"Generation: {generation}";
@@ -210,7 +211,7 @@ namespace Solar_System_CW1
         // Обработчики управления
         private void bStart_MouseClick(object sender, EventArgs e)
 		{
-			StartSimulation();
+			StartSimulation(this);
 
 			bStop.Enabled = true;
 			bStart.Enabled = false;
@@ -218,7 +219,7 @@ namespace Solar_System_CW1
 
 		private void bStop_MouseClick(object sender, EventArgs e)
 		{
-			StopSimulation();
+			StopSimulation(this);
 		}
 
 		private void hsbSpeed_ValueChanged(object sender, EventArgs e)
@@ -338,12 +339,13 @@ namespace Solar_System_CW1
         }
         private void TSM_edit_Click(object sender, EventArgs e)
         {
-			TbodyManager TbodyManager = new TbodyManager(contextBody, ContextMode.editMode);
+			TbodyManager TbodyManager = new TbodyManager(contextBody, ContextMode.editMode, this);
 			TbodyManager.Show();
         }
         private void TSM_add_Click(object sender, EventArgs e)
         {
-            TbodyManager TbodyManager = new TbodyManager(contextBody, ContextMode.addMode);
+			Tbody contextBody = null;
+            TbodyManager TbodyManager = new TbodyManager(contextBody, ContextMode.addMode, this);
             TbodyManager.Show();
         }
     }
