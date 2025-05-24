@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Solar_System_CW1
 {
-    internal class Coordinate
+    public class Coordinate
     {
         public double x, y;
         public Coordinate()

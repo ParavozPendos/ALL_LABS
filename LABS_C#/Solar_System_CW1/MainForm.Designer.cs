@@ -263,6 +263,7 @@
             this.TSM_edit.Name = "TSM_edit";
             this.TSM_edit.Size = new System.Drawing.Size(154, 22);
             this.TSM_edit.Text = "Редактировать";
+            this.TSM_edit.Click += new System.EventHandler(this.TSM_edit_Click);
             // 
             // ContextOnEmpty
             // 
@@ -276,6 +277,7 @@
             this.TSM_add.Name = "TSM_add";
             this.TSM_add.Size = new System.Drawing.Size(124, 22);
             this.TSM_add.Text = "добавить";
+            this.TSM_add.Click += new System.EventHandler(this.TSM_add_Click);
             // 
             // MainForm
             // 

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Solar_System_CW1
 {
-    internal class Tbody
+    public class Tbody
     {
         public static List<Tbody> AllObjects = new List<Tbody>();
 

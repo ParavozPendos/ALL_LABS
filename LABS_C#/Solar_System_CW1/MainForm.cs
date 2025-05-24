@@ -29,6 +29,7 @@ namespace Solar_System_CW1
 		private DateTime timePassed = new DateTime();
 		private Tbody selectedBody = null;
 		private Tbody contextBody = null;
+		
 
 		public MainForm()
 		{
@@ -330,9 +331,20 @@ namespace Solar_System_CW1
                 graphics = Graphics.FromImage(pictureBox.Image);
             }
         }
+
         private void TSM_delete_Click(object sender, EventArgs e)
         {
 			Tbody.Deleter(contextBody);
+        }
+        private void TSM_edit_Click(object sender, EventArgs e)
+        {
+			TbodyManager TbodyManager = new TbodyManager(contextBody, ContextMode.editMode);
+			TbodyManager.Show();
+        }
+        private void TSM_add_Click(object sender, EventArgs e)
+        {
+            TbodyManager TbodyManager = new TbodyManager(contextBody, ContextMode.addMode);
+            TbodyManager.Show();
         }
     }
 }
