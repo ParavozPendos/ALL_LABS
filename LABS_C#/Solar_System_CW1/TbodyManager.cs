@@ -25,7 +25,7 @@ namespace Solar_System_CW1
         {
             InitializeComponent();
             mainForm = form;
-            MainForm.StopSimulation(mainForm);
+            if (mainForm.isGo == true)MainForm.StopSimulation(mainForm);
             
             if (contextMode == ContextMode.editMode)
             {
@@ -97,7 +97,7 @@ namespace Solar_System_CW1
                 if (TB_Parent.Text == item.name)
                 {
                     itParent = item;
-                    break; // Нашли родителя, можно выйти из цикла
+                    break; 
                 }
             }
 
@@ -126,7 +126,7 @@ namespace Solar_System_CW1
                 radius: itRadius,
                 speed: double.Parse(TB_Speed.Text),
                 size: double.Parse(TB_Size.Text),
-                color: new SolidBrush(bSelectColor.BackColor) // Используем цвет из кнопки, а не диалога
+                color: new SolidBrush(bSelectColor.BackColor)
             );
 
             // Добавляем к родителю, если он существует
@@ -150,6 +150,11 @@ namespace Solar_System_CW1
 
             MainForm.StartSimulation(mainForm);
             Close();
+        }
+
+        private void TbodyManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm.StartSimulation(mainForm);
         }
     }
 }

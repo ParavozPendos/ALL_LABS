@@ -25,6 +25,9 @@ namespace Solar_System_CW1
 		private int generation = 0;
 		private bool isDragging = false;
 		private bool isSimulationStated = false;
+		public bool isGo = false;
+
+	
 
 		private DateTime timePassed = new DateTime();
 		private Tbody selectedBody = null;
@@ -49,6 +52,7 @@ namespace Solar_System_CW1
         }
         public static void StartSimulation(MainForm form)
         {
+			form.isGo = true;
             form.isSimulationStated = true;
             form.pictureBox.Image = new Bitmap(form.pictureBox.Width, form.pictureBox.Height);
             form.graphics = Graphics.FromImage(form.pictureBox.Image);
@@ -58,14 +62,16 @@ namespace Solar_System_CW1
 
         public static void StopSimulation(MainForm form)
         {
-            if (form.globalSpeed != 0)
+            if (form.isGo)
             {
+				form.isGo = false;
                 form.globalSpeed = 0;
                 form.bStop.Text = "Continue";
                 form.bStop.BackColor = Color.LightGreen;
             }
             else
             {
+				form.isGo = true;
                 form.globalSpeed = form.hsbSpeed.Value;
                 form.bStop.Text = "Stop";
                 form.bStop.BackColor = Color.Yellow;

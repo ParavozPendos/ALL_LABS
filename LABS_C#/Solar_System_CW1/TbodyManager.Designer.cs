@@ -240,6 +240,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "TbodyManager";
             this.Text = "TbodyManager";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TbodyManager_FormClosed);
             this.Load += new System.EventHandler(this.TbodyManager_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
