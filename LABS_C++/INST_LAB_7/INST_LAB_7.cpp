@@ -22,11 +22,13 @@ int main()
     setlocale(LC_ALL, "");
     string str;
 
-
     cout << "Введите строку" << endl;
     getline(cin, str);
-    if (StringChecker(str)) cout << "Совпадает!";
-    else cout << "Не совпадает!";
+
+    if (StringChecker(str))
+        cout << "Совпадает!";
+    else 
+        cout << "Не совпадает!";
 
 
 
