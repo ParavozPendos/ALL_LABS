@@ -40,6 +40,7 @@
             this.bStop = new System.Windows.Forms.Button();
             this.bStart = new System.Windows.Forms.Button();
             this.labelMousePos = new System.Windows.Forms.Label();
+            this.labelMousePos_field = new System.Windows.Forms.Label();
             this.labelSeconds = new System.Windows.Forms.Label();
             this.labelGeneration = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
@@ -82,6 +83,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.labelMousePos);
+            this.splitContainer1.Panel2.Controls.Add(this.labelMousePos_field);
             this.splitContainer1.Panel2.Controls.Add(this.labelSeconds);
             this.splitContainer1.Panel2.Controls.Add(this.labelGeneration);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox);
@@ -202,11 +204,24 @@
             this.labelMousePos.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelMousePos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.labelMousePos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelMousePos.Location = new System.Drawing.Point(0, 0);
+            this.labelMousePos.Location = new System.Drawing.Point(0, 16);
             this.labelMousePos.Name = "labelMousePos";
             this.labelMousePos.Size = new System.Drawing.Size(121, 16);
-            this.labelMousePos.TabIndex = 4;
+            this.labelMousePos.TabIndex = 5;
             this.labelMousePos.Text = "Mouse Position: ";
+            // 
+            // labelMousePos_field
+            // 
+            this.labelMousePos_field.AutoSize = true;
+            this.labelMousePos_field.BackColor = System.Drawing.SystemColors.ControlText;
+            this.labelMousePos_field.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelMousePos_field.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.labelMousePos_field.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelMousePos_field.Location = new System.Drawing.Point(0, 0);
+            this.labelMousePos_field.Name = "labelMousePos_field";
+            this.labelMousePos_field.Size = new System.Drawing.Size(121, 16);
+            this.labelMousePos_field.TabIndex = 4;
+            this.labelMousePos_field.Text = "Mouse Position: ";
             // 
             // labelSeconds
             // 
@@ -342,6 +357,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_edit;
         private System.Windows.Forms.ContextMenuStrip ContextOnEmpty;
         private System.Windows.Forms.ToolStripMenuItem TSM_add;
+        private System.Windows.Forms.Label labelMousePos_field;
         private System.Windows.Forms.Label labelMousePos;
     }
 }
