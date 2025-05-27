@@ -124,11 +124,6 @@ namespace Solar_System_CW1
                 color: new SolidBrush(bSelectColor.BackColor),
                 angle: double.Parse(TB_Angle.Text)
             );
-            
-            if (itParent != null)
-            {
-                itParent.AddSatellite(editingBody);
-            }
         }
         private bool ValidateFields()
         {

@@ -38,6 +38,7 @@ namespace Solar_System_CW1
             this.rotationCenter = parent != null ? parent.currentPos : new Coordinate();
 
             AllObjects.Add(this);
+            if (parent != null) parent.AddSatellite(this);
         }
 
         public string name { get; set; }
@@ -224,11 +225,6 @@ namespace Solar_System_CW1
                 size: 1,
                 color: Brushes.Pink
             );
-
-            //Запись списка спутников
-            Sun.AddSatellite(Earth, Mars, Venus, Mercury);
-            Earth.AddSatellite(Moon);
-            Mars.AddSatellite(Phobos, Deimos);
         }
         
     }
