@@ -351,6 +351,11 @@ namespace Solar_System_CW1
 
         private void TSM_delete_Click(object sender, EventArgs e)
         {
+			if (contextBody.name == "Sun")
+			{
+				MessageBox.Show("Нельзя удалить Солнце!");
+				return;
+			}
 			Tbody.Deleter(contextBody);
         }
         private void TSM_edit_Click(object sender, EventArgs e)

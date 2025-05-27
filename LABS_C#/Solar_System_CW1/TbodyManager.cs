@@ -62,6 +62,7 @@ namespace Solar_System_CW1
             }
 
             CB_Parent.Items.AddRange(Tbody.AllObjects.ToArray());
+            CB_Parent.Items.Remove(editingBody);
             CB_Parent.DisplayMember = "name";
         }
         private void TbodyManager_Load(object sender, EventArgs e)
