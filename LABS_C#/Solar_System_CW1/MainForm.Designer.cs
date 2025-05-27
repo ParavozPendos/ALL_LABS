@@ -39,6 +39,7 @@
             this.labelSpeed = new System.Windows.Forms.Label();
             this.bStop = new System.Windows.Forms.Button();
             this.bStart = new System.Windows.Forms.Button();
+            this.labelMousePos = new System.Windows.Forms.Label();
             this.labelSeconds = new System.Windows.Forms.Label();
             this.labelGeneration = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
@@ -80,6 +81,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.labelMousePos);
             this.splitContainer1.Panel2.Controls.Add(this.labelSeconds);
             this.splitContainer1.Panel2.Controls.Add(this.labelGeneration);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox);
@@ -193,6 +195,19 @@
             this.bStart.UseVisualStyleBackColor = true;
             this.bStart.MouseClick += new System.Windows.Forms.MouseEventHandler(this.bStart_MouseClick);
             // 
+            // labelMousePos
+            // 
+            this.labelMousePos.AutoSize = true;
+            this.labelMousePos.BackColor = System.Drawing.SystemColors.ControlText;
+            this.labelMousePos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelMousePos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.labelMousePos.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelMousePos.Location = new System.Drawing.Point(0, 0);
+            this.labelMousePos.Name = "labelMousePos";
+            this.labelMousePos.Size = new System.Drawing.Size(121, 16);
+            this.labelMousePos.TabIndex = 4;
+            this.labelMousePos.Text = "Mouse Position: ";
+            // 
             // labelSeconds
             // 
             this.labelSeconds.AutoSize = true;
@@ -202,9 +217,9 @@
             this.labelSeconds.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelSeconds.Location = new System.Drawing.Point(0, 330);
             this.labelSeconds.Name = "labelSeconds";
-            this.labelSeconds.Size = new System.Drawing.Size(84, 16);
+            this.labelSeconds.Size = new System.Drawing.Size(72, 16);
             this.labelSeconds.TabIndex = 3;
-            this.labelSeconds.Text = "Seconds: 0";
+            this.labelSeconds.Text = "Seconds:";
             // 
             // labelGeneration
             // 
@@ -215,9 +230,9 @@
             this.labelGeneration.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelGeneration.Location = new System.Drawing.Point(0, 346);
             this.labelGeneration.Name = "labelGeneration";
-            this.labelGeneration.Size = new System.Drawing.Size(99, 16);
+            this.labelGeneration.Size = new System.Drawing.Size(87, 16);
             this.labelGeneration.TabIndex = 2;
-            this.labelGeneration.Text = "Generation: 0";
+            this.labelGeneration.Text = "Generation:";
             // 
             // pictureBox
             // 
@@ -327,6 +342,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_edit;
         private System.Windows.Forms.ContextMenuStrip ContextOnEmpty;
         private System.Windows.Forms.ToolStripMenuItem TSM_add;
+        private System.Windows.Forms.Label labelMousePos;
     }
 }
 

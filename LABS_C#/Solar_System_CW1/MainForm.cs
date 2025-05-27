@@ -19,6 +19,8 @@ namespace Solar_System_CW1
 		private Graphics graphics;
 		private Coordinate systemCenter = new Coordinate();
 		private Coordinate lastMousePos = new Coordinate();
+		private Coordinate currentMousePos = new Coordinate();
+		private Coordinate LMB_Pos = new Coordinate();
 		private double globalSpeed;
         private double scale;
 		private int fps = 144;
@@ -84,6 +86,7 @@ namespace Solar_System_CW1
             labelSeconds.Text = $"Seconds: {timePassed.ToLongTimeString()}";
             labelSpeed.Text = $"Speed: {globalSpeed}";
 			labelApprox.Text = $"Approx: {scale}x";
+			labelMousePos.Text = $"Mouse Position: {LMB_Pos.x:F2} ; {LMB_Pos.y:F2}";
             
             //pictuteBox
             graphics.Clear(Color.Black);
@@ -240,12 +243,10 @@ namespace Solar_System_CW1
 
 		private void pictureBox_MouseDown(object sender, MouseEventArgs e)
 		{
-			lastMousePos.x = e.Location.X;
-			lastMousePos.y = e.Location.Y;
-            Coordinate LMB_Pos = new Coordinate(
-                    ((e.X - pictureBox.Width / 2.0) / scale) + systemCenter.x,
-                    ((e.Y - pictureBox.Height / 2.0) / scale) + systemCenter.y
-                );
+            lastMousePos.x = e.Location.X;
+            lastMousePos.y = e.Location.Y;
+
+            
 
             if (e.Button == MouseButtons.Middle)
 			{
@@ -291,7 +292,14 @@ namespace Solar_System_CW1
         }
 		private void pictureBox_MouseMove(object sender, MouseEventArgs e)
 		{
-			if (isDragging && e.Button == MouseButtons.Middle)
+            LMB_Pos = new Coordinate(
+                    ((e.X - pictureBox.Width / 2.0) / scale) + systemCenter.x,
+                    ((e.Y - pictureBox.Height / 2.0) / scale) + systemCenter.y
+                );
+            currentMousePos.x = e.Location.X;
+            currentMousePos.y = e.Location.Y;
+
+            if (isDragging && e.Button == MouseButtons.Middle)
 			{
                 int deltaX = e.X - (int)lastMousePos.x;
 				int deltaY = e.Y - (int)lastMousePos.y;

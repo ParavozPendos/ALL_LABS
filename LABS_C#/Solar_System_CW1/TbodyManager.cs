@@ -15,12 +15,25 @@ namespace Solar_System_CW1
         editMode = 0,
         addMode = 1,
     }
+
     public partial class TbodyManager : Form
     {
         private Tbody editingBody;
         private bool isEditMode;
         private bool isAddMode;
         private MainForm mainForm;
+
+        //заготовка для рефакторинга 
+        private bool eName;
+        private Coordinate ePosition;
+        private Tbody eParent;
+        private double eRadius;
+        private double eSpeed;
+        private double eSize;
+        private double eAngle;
+        private Coordinate eLastMousePosition;
+
+        
         public TbodyManager(Tbody body, ContextMode contextMode, MainForm form)
         {
             InitializeComponent();
@@ -148,13 +161,12 @@ namespace Solar_System_CW1
             if (isAddMode) Adder();
             else if (isEditMode) Editor();
 
-            MainForm.StartSimulation(mainForm);
             Close();
         }
 
         private void TbodyManager_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MainForm.StartSimulation(mainForm);
+            MainForm.StopSimulation(mainForm);
         }
     }
 }
