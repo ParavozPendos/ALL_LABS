@@ -66,8 +66,6 @@ namespace Solar_System_CW1
             return dx * dx + dy * dy <= size * size;
         }
 
-
-
         public static void Deleter(Tbody body)
         {
             if (body.satelliteList.Count != 0)
