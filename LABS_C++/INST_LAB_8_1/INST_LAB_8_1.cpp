@@ -36,7 +36,7 @@ void main()
         {
             // Q
             qPos = str.find_first_of(OPS, qPos + 1);
-            if (qPos == -1) break;
+            if (qPos == -1) continue;
             if (str[qPos - 1] == ' ') str.erase(qPos - 1, 1), qPos--;
             if (str[qPos + 1] == ' ') str.erase(qPos + 1, 1);
             partQ = str[qPos];
