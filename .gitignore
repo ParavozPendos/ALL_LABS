@@ -14,6 +14,9 @@
 *.userprefs
 
 # Игнорировать ВО ВСЕХ ПАПКАХ:
+**/f.dat
+**/g.dat
+**/Bagazhi.dat
 **/.vs/
 **/obj/
 **/bin/
