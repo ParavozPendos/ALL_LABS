@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TbodyManager));
             this.bApply = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CB_Parent = new System.Windows.Forms.ComboBox();
             this.TB_Angle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelPosition = new System.Windows.Forms.Label();
@@ -45,7 +47,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BodyColorDialog = new System.Windows.Forms.ColorDialog();
-            this.CB_Parent = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,6 +107,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(341, 303);
             this.panel1.TabIndex = 8;
+            // 
+            // CB_Parent
+            // 
+            this.CB_Parent.FormattingEnabled = true;
+            this.CB_Parent.Location = new System.Drawing.Point(132, 34);
+            this.CB_Parent.Name = "CB_Parent";
+            this.CB_Parent.Size = new System.Drawing.Size(193, 21);
+            this.CB_Parent.TabIndex = 23;
             // 
             // TB_Angle
             // 
@@ -214,14 +223,6 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Radius: ";
             // 
-            // CB_Parent
-            // 
-            this.CB_Parent.FormattingEnabled = true;
-            this.CB_Parent.Location = new System.Drawing.Point(132, 34);
-            this.CB_Parent.Name = "CB_Parent";
-            this.CB_Parent.Size = new System.Drawing.Size(193, 21);
-            this.CB_Parent.TabIndex = 23;
-            // 
             // TbodyManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,8 +230,9 @@
             this.ClientSize = new System.Drawing.Size(365, 373);
             this.Controls.Add(this.bApply);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TbodyManager";
-            this.Text = "TbodyManager";
+            this.Text = "Body Manager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TbodyManager_FormClosed);
             this.Load += new System.EventHandler(this.TbodyManager_Load);
             this.panel1.ResumeLayout(false);
