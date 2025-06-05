@@ -58,6 +58,7 @@ namespace Solar_System_CW1
         {
             satelliteList.AddRange(satellites);
         }
+        
         public bool IsPointOnBody(Coordinate point, double currentScale)
         {
             // Проверяем попадание в круг

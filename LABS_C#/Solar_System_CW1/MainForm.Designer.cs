@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.bDelete = new System.Windows.Forms.Button();
+            this.bCollisions = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -75,6 +77,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.bDelete);
+            this.splitContainer1.Panel1.Controls.Add(this.bCollisions);
             this.splitContainer1.Panel1.Controls.Add(this.panel2);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.bStop);
@@ -91,6 +95,30 @@
             this.splitContainer1.SplitterDistance = 108;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
+            // 
+            // bDelete
+            // 
+            this.bDelete.BackColor = System.Drawing.Color.Red;
+            this.bDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bDelete.Location = new System.Drawing.Point(91, 59);
+            this.bDelete.Name = "bDelete";
+            this.bDelete.Size = new System.Drawing.Size(85, 45);
+            this.bDelete.TabIndex = 7;
+            this.bDelete.Text = "Delete Save";
+            this.bDelete.UseVisualStyleBackColor = false;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
+            // 
+            // bCollisions
+            // 
+            this.bCollisions.BackColor = System.Drawing.Color.Green;
+            this.bCollisions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bCollisions.Location = new System.Drawing.Point(91, 9);
+            this.bCollisions.Name = "bCollisions";
+            this.bCollisions.Size = new System.Drawing.Size(85, 45);
+            this.bCollisions.TabIndex = 6;
+            this.bCollisions.Text = "Collisions";
+            this.bCollisions.UseVisualStyleBackColor = false;
+            this.bCollisions.Click += new System.EventHandler(this.bCollisions_Click);
             // 
             // panel2
             // 
@@ -176,11 +204,12 @@
             // 
             // bStop
             // 
+            this.bStop.BackColor = System.Drawing.Color.Yellow;
             this.bStop.Enabled = false;
             this.bStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bStop.Location = new System.Drawing.Point(91, 10);
+            this.bStop.Location = new System.Drawing.Point(3, 59);
             this.bStop.Name = "bStop";
-            this.bStop.Size = new System.Drawing.Size(85, 94);
+            this.bStop.Size = new System.Drawing.Size(85, 45);
             this.bStop.TabIndex = 3;
             this.bStop.Text = "Stop";
             this.bStop.UseVisualStyleBackColor = false;
@@ -189,9 +218,9 @@
             // bStart
             // 
             this.bStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bStart.Location = new System.Drawing.Point(3, 10);
+            this.bStart.Location = new System.Drawing.Point(3, 9);
             this.bStart.Name = "bStart";
-            this.bStart.Size = new System.Drawing.Size(82, 94);
+            this.bStart.Size = new System.Drawing.Size(85, 45);
             this.bStart.TabIndex = 0;
             this.bStart.Text = "Start";
             this.bStart.UseVisualStyleBackColor = true;
@@ -318,6 +347,7 @@
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -359,6 +389,8 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_add;
         private System.Windows.Forms.Label labelMousePos_field;
         private System.Windows.Forms.Label labelMousePos;
+        private System.Windows.Forms.Button bCollisions;
+        private System.Windows.Forms.Button bDelete;
     }
 }
 

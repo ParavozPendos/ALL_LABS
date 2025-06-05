@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -27,6 +28,8 @@ namespace Solar_System_CW1
 		private int generation = 0;
 		private bool isDragging = false;
 		private bool isSimulationStated = false;
+		private bool isCheckingCollisions = false;
+		private bool isDelitingSave = false;
 		public bool isGo = false;
 
 	
@@ -44,8 +47,17 @@ namespace Solar_System_CW1
 		
 		private void MainForm_Load(object sender, EventArgs e) 
 		{
-            Tbody.InitializeSolarSystem();
-			
+            string path = GetSavePath();
+
+            if (File.Exists(path))
+            {
+                JsonHandler.LoadFromFile(path);
+            }
+            else
+            {
+                Tbody.InitializeSolarSystem();
+            }
+
             globalSpeed = hsbSpeed.Value;
             scale = (double)hsbApprox.Value / 2;
             timer.Interval = 1000 / fps;
@@ -70,6 +82,7 @@ namespace Solar_System_CW1
                 form.globalSpeed = 0;
                 form.bStop.Text = "Continue";
                 form.bStop.BackColor = Color.LightGreen;
+				form.hsbSpeed.Enabled = false;
             }
             else
             {
@@ -77,6 +90,7 @@ namespace Solar_System_CW1
                 form.globalSpeed = form.hsbSpeed.Value;
                 form.bStop.Text = "Stop";
                 form.bStop.BackColor = Color.Yellow;
+				form.hsbSpeed.Enabled = true;
             }
         }
         private void DrawSimulation()
@@ -96,9 +110,12 @@ namespace Solar_System_CW1
 				pictureBox.Width / 2.0 - systemCenter.x * scale,
 				pictureBox.Height / 2.0 - systemCenter.y * scale
 			);
-
-			//Цикл отрисовки объектов
-			foreach (var body in Tbody.AllObjects)
+			if (isCheckingCollisions)
+			{
+                MoveAndCollisions.CheckAllCollisions();
+            }
+            //Цикл отрисовки объектов
+            foreach (var body in Tbody.AllObjects)
 			{
 				Coordinate screenPos = center + (body.currentPos * scale);
 				double radius = body.size * scale;
@@ -209,12 +226,20 @@ namespace Solar_System_CW1
 		{
 			if (globalSpeed != 0) generation++;
 
-			MoveLogic.UpdateAllPositions(globalSpeed);
+			MoveAndCollisions.UpdateAllPositions(globalSpeed);
 			DrawSimulation();
 		}
         private void secTimer_Tick(object sender, EventArgs e)
         {
 			timePassed = timePassed.AddSeconds(globalSpeed);
+        }
+
+        private string GetSavePath()
+        {
+            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string appFolder = Path.Combine(appData, "Solar_System_CW1");
+            Directory.CreateDirectory(appFolder);
+            return Path.Combine(appFolder, "Save.json");
         }
 
 
@@ -368,6 +393,43 @@ namespace Solar_System_CW1
 			Tbody contextBody = null;
             TbodyManager TbodyManager = new TbodyManager(contextBody, ContextMode.addMode, this);
             TbodyManager.Show();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string path = GetSavePath();
+			if (!isDelitingSave) JsonHandler.SaveToFile(path);
+        }
+
+        private void bCollisions_Click(object sender, EventArgs e)
+        {
+			if (isCheckingCollisions)
+			{
+				isCheckingCollisions = false;
+				bCollisions.BackColor = Color.Green;
+			}
+			else
+			{
+				isCheckingCollisions = true;
+				bCollisions.BackColor = Color.Red;
+			}
+        }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+			DialogResult result = MessageBox.Show
+			(
+                "Вы уверены, что хотите удалить файл?",
+				"Подтверждение удаления",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question
+			);
+			if (result == DialogResult.Yes)
+			{
+				isDelitingSave = true;
+                File.Delete(GetSavePath());
+				Close();
+			}
         }
     }
 }
