@@ -27,7 +27,7 @@ namespace Solar_System_CW1
         {
             try
             {
-                var data = Tbody.AllObjects.Select(body => new SavedBody
+                List<SavedBody> data = Tbody.AllObjects.Select(body => new SavedBody
                 {
                     name = body.name,
                     description = body.description,
@@ -74,7 +74,8 @@ namespace Solar_System_CW1
 
                 foreach (var savedBody in savedBodies)
                 {
-                    var body = new Tbody(
+                    var body = new Tbody
+                    (
                         name: savedBody.name,
                         description: savedBody.description,
                         currentPos: savedBody.currentPos,
