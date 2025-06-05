@@ -189,7 +189,7 @@
             this.labelApprox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.labelApprox.Location = new System.Drawing.Point(8, 58);
             this.labelApprox.Name = "labelApprox";
-            this.labelApprox.Size = new System.Drawing.Size(79, 16);
+            this.labelApprox.Size = new System.Drawing.Size(80, 16);
             this.labelApprox.TabIndex = 4;
             this.labelApprox.Text = "Approx: 1x";
             // 
@@ -199,7 +199,7 @@
             this.labelSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.labelSpeed.Location = new System.Drawing.Point(8, 14);
             this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.Size = new System.Drawing.Size(69, 16);
+            this.labelSpeed.Size = new System.Drawing.Size(70, 16);
             this.labelSpeed.TabIndex = 3;
             this.labelSpeed.Text = "Speed: 1";
             // 
@@ -236,7 +236,7 @@
             this.labelMousePos.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelMousePos.Location = new System.Drawing.Point(0, 16);
             this.labelMousePos.Name = "labelMousePos";
-            this.labelMousePos.Size = new System.Drawing.Size(121, 16);
+            this.labelMousePos.Size = new System.Drawing.Size(122, 16);
             this.labelMousePos.TabIndex = 5;
             this.labelMousePos.Text = "Mouse Position: ";
             // 
@@ -249,7 +249,7 @@
             this.labelMousePos_field.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelMousePos_field.Location = new System.Drawing.Point(0, 0);
             this.labelMousePos_field.Name = "labelMousePos_field";
-            this.labelMousePos_field.Size = new System.Drawing.Size(121, 16);
+            this.labelMousePos_field.Size = new System.Drawing.Size(122, 16);
             this.labelMousePos_field.TabIndex = 4;
             this.labelMousePos_field.Text = "Mouse Position: ";
             // 
@@ -262,7 +262,7 @@
             this.labelSeconds.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelSeconds.Location = new System.Drawing.Point(0, 330);
             this.labelSeconds.Name = "labelSeconds";
-            this.labelSeconds.Size = new System.Drawing.Size(72, 16);
+            this.labelSeconds.Size = new System.Drawing.Size(73, 16);
             this.labelSeconds.TabIndex = 3;
             this.labelSeconds.Text = "Seconds:";
             // 
@@ -275,7 +275,7 @@
             this.labelGeneration.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelGeneration.Location = new System.Drawing.Point(0, 346);
             this.labelGeneration.Name = "labelGeneration";
-            this.labelGeneration.Size = new System.Drawing.Size(87, 16);
+            this.labelGeneration.Size = new System.Drawing.Size(88, 16);
             this.labelGeneration.TabIndex = 2;
             this.labelGeneration.Text = "Generation:";
             // 
