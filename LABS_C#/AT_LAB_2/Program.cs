@@ -1,87 +1,182 @@
 ﻿using System;
+using System.Collections.Generic;
 
-class OneDimSearch
+namespace OneDimensionalSearch
 {
-    static double f(double x) => (x - 9) * (x - 9);
-
-    // Метод дихотомии
-    static (double min, int calls) Dichotomy(double a, double b, double eps)
+    class IterationData
     {
-        double delta = 1e-10;   
-        int calls = 0;
-        while (b - a >= eps)
-        {
-            double mid = (a + b) / 2;
-            double x1 = mid - delta;
-            double x2 = mid + delta;
-            double f1 = f(x1);
-            double f2 = f(x2);
-            calls += 2;
-            if (f1 < f2)
-                b = x2;
-            else
-                a = x1;
-        }
-        return ((a + b) / 2, calls);
+        public double X1 { get; set; }
+        public double X2 { get; set; }
+        public double F1 { get; set; }
+        public double F2 { get; set; }
+        public double A { get; set; }
+        public double B { get; set; }
+        public double Width { get; set; }
     }
 
-    // Метод золотого сечения
-    static (double min, int calls) GoldenSection(double a, double b, double eps)
+    class Program
     {
-        double phi = (1 + Math.Sqrt(5)) / 2;      // 1.618...
-        double tau = 1 - 1 / phi;                // 0.382...
-        double x1 = a + (1 - tau) * (b - a);     // = a + 0.382*(b-a)
-        double x2 = a + tau * (b - a);           // = a + 0.618*(b-a)
-        double f1 = f(x1), f2 = f(x2);
-        int calls = 2;
+        static double F(double x) => (x - 1) * (x - 1);
 
-        while (b - a >= eps)
+        // Метод дихотомии
+        static (double result, List<IterationData> iterations, int funcCount) DichotomyMethod(double a, double b, double eps)
         {
-            if (f1 < f2)
+            double delta = eps * 0.1;
+            var iterations = new List<IterationData>();
+            int funcCount = 0;
+
+            while (true)
             {
-                b = x2;
-                x2 = x1;
-                f2 = f1;
-                x1 = a + (1 - tau) * (b - a);
-                f1 = f(x1);
+                double width = b - a;
+                if (width <= eps) break;
+
+                double x1 = (a + b) / 2 - delta;
+                double x2 = (a + b) / 2 + delta;
+                double f1 = F(x1);
+                double f2 = F(x2);
+                funcCount += 2;
+
+                iterations.Add(new IterationData
+                {
+                    X1 = x1,
+                    X2 = x2,
+                    F1 = f1,
+                    F2 = f2,
+                    A = a,
+                    B = b,
+                    Width = width
+                });
+
+                if (f1 < f2)
+                    b = x2;
+                else
+                    a = x1;
             }
-            else
-            {
-                a = x1;
-                x1 = x2;
-                f1 = f2;
-                x2 = a + tau * (b - a);
-                f2 = f(x2);
-            }
-            calls++;
+
+            double result = (a + b) / 2;
+            return (result, iterations, funcCount);
         }
-        return ((a + b) / 2, calls);
-    }
 
-    static void Main()
-    {
-        double a = -2, b = 20;
-        double eps = 0.001;
-
-        // Запуск для ε = 0.001 с подробным выводом
-        Console.WriteLine("Метод дихотомии (ε=0.001)");
-        var (minDich, callsDich) = Dichotomy(a, b, eps);
-        Console.WriteLine($"x_min = {minDich:F8}, f(x_min) = {f(minDich):F8}, вызовов = {callsDich}");
-
-        Console.WriteLine("\nМетод золотого сечения (ε=0.001)");
-        var (minGold, callsGold) = GoldenSection(a, b, eps);
-        Console.WriteLine($"x_min = {minGold:F8}, f(x_min) = {f(minGold):F8}, вызовов = {callsGold}");
-
-        // Сравнение для разных ε
-        Console.WriteLine("\nСравнение по точности:");
-        Console.WriteLine("ε\t\tДихотомия\tЗолотое сечение");
-        for (int p = 2; p <= 8; p++)
+        // Метод золотого сечения
+        static (double result, List<IterationData> iterations, int funcCount) GoldenSectionMethod(double a, double b, double eps)
         {
-            double e = Math.Pow(10, -p);
-            int d = Dichotomy(a, b, e).calls;
-            int g = GoldenSection(a, b, e).calls;
-            Console.WriteLine($"{e:F8}\t{d}\t\t{g}");
+            double phi = (1 + Math.Sqrt(5)) / 2;
+            double tau = 2 - phi;  // ~0.381966
+
+            double x1 = a + tau * (b - a);
+            double x2 = b - tau * (b - a);
+            double f1 = F(x1);
+            double f2 = F(x2);
+            int funcCount = 2;
+
+            var iterations = new List<IterationData>();
+
+            while (true)
+            {
+                double width = b - a;
+                if (width <= eps) break;
+
+                iterations.Add(new IterationData
+                {
+                    X1 = x1,
+                    X2 = x2,
+                    F1 = f1,
+                    F2 = f2,
+                    A = a,
+                    B = b,
+                    Width = width
+                });
+
+                if (f1 < f2)
+                {
+                    b = x2;
+                    x2 = x1;
+                    f2 = f1;
+                    x1 = a + tau * (b - a);
+                    f1 = F(x1);
+                }
+                else
+                {
+                    a = x1;
+                    x1 = x2;
+                    f1 = f2;
+                    x2 = b - tau * (b - a);
+                    f2 = F(x2);
+                }
+                funcCount++;
+            }
+
+            double result = (a + b) / 2;
+            return (result, iterations, funcCount);
         }
-        Console.ReadKey();
+
+        // Печать таблицы итераций
+        static void PrintTable(string title, List<IterationData> iterations)
+        {
+            Console.WriteLine($"\n{title}");
+            string header = string.Format("{0,-4} | {1,-10} | {2,-10} | {3,-10} | {4,-10} | {5,-10} | {6,-10} | {7,-10}",
+                "i", "x1", "x2", "f(x1)", "f(x2)", "a_i", "b_i", "b-a");
+            Console.WriteLine(new string('-', header.Length));
+            Console.WriteLine(header);
+            Console.WriteLine(new string('-', header.Length));
+
+            for (int i = 0; i < iterations.Count; i++)
+            {
+                var it = iterations[i];
+                Console.WriteLine(string.Format("{0,-4} | {1,-10:F6} | {2,-10:F6} | {3,-10:F6} | {4,-10:F6} | {5,-10:F6} | {6,-10:F6} | {7,-10:F6}",
+                    i + 1, it.X1, it.X2, it.F1, it.F2, it.A, it.B, it.Width));
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            double A = -2, B = 20;
+            double epsTable = 0.001;
+
+            // 1. Таблицы для eps = 0.001
+            var (_, iterDich, _) = DichotomyMethod(A, B, epsTable);
+            var (_, iterGold, _) = GoldenSectionMethod(A, B, epsTable);
+
+            PrintTable("ТАБЛИЦА ИТЕРАЦИЙ: ДИХОТОМИЯ (eps=0.001)", iterDich);
+            PrintTable("ТАБЛИЦА ИТЕРАЦИЙ: ЗОЛОТОЕ СЕЧЕНИЕ (eps=0.001)", iterGold);
+
+            // 2. Дополнительные требуемые epsilon: 0.01 и 0.25
+            Console.WriteLine("\n" + new string('=', 70));
+            Console.WriteLine("ПРОВЕРКА СТОЛБЦА b-a ПО ТРЕБОВАНИЮ ПРЕПОДАВАТЕЛЯ");
+            Console.WriteLine(new string('=', 70));
+
+            foreach (double eps in new double[] { 0.01 })
+            {
+                Console.WriteLine($"\nЭпсилон = {eps}");
+                var (_, iterD, _) = DichotomyMethod(A, B, eps);
+                var (_, iterG, _) = GoldenSectionMethod(A, B, eps);
+
+                Console.WriteLine("\nДихотомия (последняя итерация):");
+                var lastD = iterD[iterD.Count - 1];
+                Console.WriteLine($"  b-a = {lastD.Width:F6}  |  Условие b-a <= eps: {lastD.Width <= eps}");
+
+                Console.WriteLine("\nЗолотое сечение (последняя итерация):");
+                var lastG = iterG[iterG.Count - 1];
+                Console.WriteLine($"  b-a = {lastG.Width:F6}  |  Условие b-a <= eps: {lastG.Width <= eps}");
+            }
+
+            // 3. Сравнение по точности от 1e-2 до 1e-8
+            Console.WriteLine("\n" + new string('=', 70));
+            Console.WriteLine("СРАВНЕНИЕ ПО ТОЧНОСТИ (количество вычислений f)");
+            Console.WriteLine(new string('=', 70));
+            Console.WriteLine(string.Format("{0,-12} | {1,-12} | {2,-12}", "eps", "Дихотомия", "Зол. сечение"));
+            Console.WriteLine(new string('-', 45));
+
+            for (int p = 2; p <= 8; p++)
+            {
+                double e = Math.Pow(10, -p);
+                var (_, _, countD) = DichotomyMethod(A, B, e);
+                var (_, _, countG) = GoldenSectionMethod(A, B, e);
+                Console.WriteLine(string.Format("{0,-12:F8} | {1,-12} | {2,-12}", e, countD, countG));
+            }
+
+            Console.WriteLine("\nНажмите любую клавишу для выхода...");
+            Console.ReadKey();
+        }
     }
 }
